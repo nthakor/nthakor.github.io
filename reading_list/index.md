@@ -14,7 +14,7 @@ Useful resources to start:
 
 - CS321n lecture: https://youtu.be/5WoItGTWV54
 
-### GAN Papers
+## GAN Papers
 
 |                                               Title                                                |              Author               |year|
 |----------------------------------------------------------------------------------------------------|-----------------------------------|---:|
@@ -49,6 +49,7 @@ Useful resources to start:
 - Ian Goodfellow Talk: https://youtu.be/CIfsB_EYsVI
 - Nicholas Papernot Talk: https://youtu.be/hUukErt3-7w
 - Adversarial Machine Learning slide: 
+
 ## Papers:
 
 | Title                                    | Author                       | year |
