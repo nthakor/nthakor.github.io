@@ -15,7 +15,7 @@ Useful resources to start:
 - CS321n lecture: https://youtu.be/5WoItGTWV54
 
 ### GAN Papers
-|                                               Title                                                |              Author               |year|
+|Title|              Author               |year|
 |----------------------------------------------------------------------------------------------------|-----------------------------------|---:|
 |Auto-encoding variational bayes                                                                     |Kingma, Diederik P et al.          |2013|
 |Black box variational inference                                                                     |Ranganath, Rajesh et al.           |2014|
