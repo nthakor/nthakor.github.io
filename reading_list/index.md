@@ -15,7 +15,7 @@ Useful resources to start:
 - CS321n lecture: https://youtu.be/5WoItGTWV54
 
 ### GAN Papers
-# GAN Papers
+
 |                                               Title                                                |              Author               |year|
 |----------------------------------------------------------------------------------------------------|-----------------------------------|---:|
 |Auto-encoding variational bayes                                                                     |Kingma, Diederik P et al.          |2013|
@@ -35,6 +35,10 @@ Useful resources to start:
 |It Takes (Only) Two: Adversarial Generator-Encoder Networks                                         |Ulyanov, Dmitry et al.             |2017|
 |A Classification-Based Perspective on GAN Distributions                                             |Santurkar, Shibani et al.          |2017|
 |Generalization and Equilibrium in Generative Adversarial Nets (GANs)                                |Arora, Sanjeev et al.              |2017|
+
+​
+
+​
 
 ​
 
