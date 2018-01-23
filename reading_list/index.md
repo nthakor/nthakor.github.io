@@ -53,7 +53,7 @@ Useful resources to start:
 
 ### Resources to Learn TensorFlow
 
-- [CS20I Course](https://web.stanford.edu/class/cs20si/2017/)
+- [CS20SI Course](https://web.stanford.edu/class/cs20si/2017/)
 - [Learning Tensorflow](https://learningtensorflow.com)
 
 ​
