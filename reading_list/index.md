@@ -13,6 +13,8 @@ Papers:
 Useful resources to start:
 
 - [CS321n lecture](https://youtu.be/5WoItGTWV54)
+- [Approaximate Bayesian Inference](https://arxiv.org/abs/1601.00670)
+- [Deep Generative Model Tutorial](https://youtu.be/JrO5fSskISY)
 
 ## Papers
 
