@@ -40,4 +40,20 @@ Useful resources to start:
 - [Deep Learning.AI](https://www.deeplearning.ai/)
 - [Neural Networks and Deep Learning](http://neuralnetworksanddeeplearning.com/)
 
+### Videos
+- [Intuitive Explanation of Deep Learning](https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi)
+
+
+## Software
+
+- [TensorFlow](https://www.tensorflow.org)
+- [PyTorch](http://pytorch.org)
+- [Edward](http://edwardlib.org) - Probabilistic Modeling Using TF
+- [Pyro](http://pyro.ai) - Probabilistic Modeling using Pytorch
+
+### Resources to Learn TensorFlow
+
+- [CS20I Course](https://web.stanford.edu/class/cs20si/2017/)
+- [Learning Tensorflow](https://learningtensorflow.com)
+
 ​
