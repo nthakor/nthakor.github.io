@@ -12,9 +12,9 @@ Papers:
 
 Useful resources to start:
 
-- CS321n lecture: https://youtu.be/5WoItGTWV54
+- [CS321n lecture](https://youtu.be/5WoItGTWV54)
 
-## GAN Papers
+## Papers
 
 |                                               Title                                                |              Author               |year|
 |----------------------------------------------------------------------------------------------------|-----------------------------------|---:|
@@ -39,30 +39,3 @@ Useful resources to start:
 ​
 
 ​
-
-​
-
-* Adversarial Machine Learning
-
-## Useful Resources:
-
-- Ian Goodfellow Talk: https://youtu.be/CIfsB_EYsVI
-- Nicholas Papernot Talk: https://youtu.be/hUukErt3-7w
-- Adversarial Machine Learning slide: 
-
-## Papers:
-
-| Title                                    | Author                       | year |
-| ---------------------------------------- | ---------------------------- | ---: |
-| Intriguing properties of neural networks | Szegedy, Christian et al.    | 2013 |
-| Towards deep learning models resistant to adversarial attacks | Madry, Aleksander et al.     | 2017 |
-| Towards evaluating the robustness of neural networks | Carlini, Nicholas et al.     | 2017 |
-| The Space of Transferable Adversarial Examples | Tram{\`{e}}r, Florian et al. | 2017 |
-| Adversarial machine learning at scale    | Kurakin, Alexey et al.       | 2016 |
-| Ensemble Adversarial Training: Attacks and Defenses | Tram{\`{e}}r, Florian et al. | 2017 |
-| Practical black-box attacks against deep learning systems using adversarial examples | Papernot, Nicolas et al.     | 2016 |
-| Going deeper with convolutions           | Szegedy, Christian et al.    | 2015 |
-| The limitations of deep learning in adversarial settings | Papernot, Nicolas et al.     | 2016 |
-| Distillation as a defense to adversarial perturbations against deep neural networks | Papernot, Nicolas et al.     | 2016 |
-| Explaining and harnessing adversarial examples | Goodfellow, Ian J et al.     | 2014 |
-| Houdini: Fooling Deep Structured Prediction Models | Cisse, Moustapha et al.      | 2017 |
