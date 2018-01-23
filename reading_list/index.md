@@ -39,5 +39,13 @@ Useful resources to start:
 |Generalization and Equilibrium in Generative Adversarial Nets (GANs)                                |Arora, Sanjeev et al.              |2017|
 
 ​
+## Resources for Deep Learning:
+
+### Books
+- [Deep Learning Book](http://www.deeplearningbook.org/)
+
+### Courses
+- [Deep Learning.AI](https://www.deeplearning.ai/)
+- [Neural Networks and Deep Learning](http://neuralnetworksanddeeplearning.com/)
 
 ​
