@@ -1,11 +1,3 @@
-## Research Areas
-
-* Generative Models
-* Adversarial Machine Learning
-* Bayesian Deep Learning
-
-Papers:
-
 * Generative Models:
 
 ## Generative Models: A primer
