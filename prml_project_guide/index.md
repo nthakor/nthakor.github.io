@@ -1,4 +1,4 @@
-# wUseful resourse for ES647 Projects: 
+# Useful resourse for ES647 Projects: 
 
 
 
