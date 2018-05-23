@@ -21,8 +21,22 @@
 
 ## Reading List
 
-## code
+### Presentation
 
-## datasets
+- [Introduction to Adversarial Machine Learning](http://nthakor.me/adversarial_ml)
+- [Security and Privacy of Machine Learning](http://www.iangoodfellow.com/slides/2018-04-rsa.pdf)
+- [Defending Against Adversarial Examples](http://www.iangoodfellow.com/slides/2017-12-08-defending.pdf)
+
+### Talks
+
+- [Adversarial Examples and Adversarial Training](https://www.youtube.com/watch?v=CIfsB_EYsVI)
+- [Adversarial Examples in Machine Learning](https://www.youtube.com/watch?v=hUukErt3-7w&t=1s)
+
+### Other useful resources
+
+- [Adversarial Attacks and Defences Competition](https://arxiv.org/abs/1804.00097)
+- [Cleverhans Blog](http://cleverhans.io/)
 
 ## software
+
+- [Cleverhans Library](https://github.com/tensorflow/cleverhans) [Paper](https://arxiv.org/abs/1610.00768)
