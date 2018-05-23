@@ -1,0 +1,116 @@
+@article{szegedy2013intriguing,
+abstract = {Deep neural networks are highly expressive models that have recently achieved state of the art performance on speech and visual recognition tasks. While their expressiveness is the reason they succeed, it also causes them to learn uninterpretable solutions that could have counter-intuitive properties. In this paper we report two such properties. First, we find that there is no distinction between individual high level units and random linear combinations of high level units, according to various methods of unit analysis. It suggests that it is the space, rather than the individual units, that contains of the semantic information in the high layers of neural networks. Second, we find that deep neural networks learn input-output mappings that are fairly discontinuous to a significant extend. We can cause the network to misclassify an image by applying a certain imperceptible perturbation, which is found by maximizing the network's prediction error. In addition, the specific nature of these perturbations is not a random artifact of learning: the same perturbation can cause a different network, that was trained on a different subset of the dataset, to misclassify the same input.},
+archivePrefix = {arXiv},
+arxivId = {1312.6199},
+author = {Szegedy, Christian and Zaremba, Wojciech and Sutskever, Ilya and Bruna, Joan and Erhan, Dumitru and Goodfellow, Ian and Fergus, Rob},
+eprint = {1312.6199},
+journal = {arXiv preprint arXiv:1312.6199},
+month = {dec},
+title = {{Intriguing properties of neural networks}},
+url = {http://arxiv.org/abs/1312.6199},
+year = {2013}
+}
+@article{goodfellow2014explaining,
+author = {Goodfellow, Ian J and Shlens, Jonathon and Szegedy, Christian},
+journal = {arXiv preprint arXiv:1412.6572},
+title = {{Explaining and harnessing adversarial examples}},
+year = {2014}
+}
+@inproceedings{szegedy2015going,
+author = {Szegedy, Christian and Liu, Wei and Jia, Yangqing and Sermanet, Pierre and Reed, Scott and Anguelov, Dragomir and Erhan, Dumitru and Vanhoucke, Vincent and Rabinovich, Andrew},
+booktitle = {Proceedings of the IEEE conference on computer vision and pattern recognition},
+pages = {1--9},
+title = {{Going deeper with convolutions}},
+year = {2015}
+}
+@article{kurakin2016adversarial,
+author = {Kurakin, Alexey and Goodfellow, Ian and Bengio, Samy},
+journal = {arXiv preprint arXiv:1611.01236},
+title = {{Adversarial machine learning at scale}},
+year = {2016}
+}
+@article{papernot2016practical,
+author = {Papernot, Nicolas and McDaniel, Patrick and Goodfellow, Ian and Jha, Somesh and Celik, Z Berkay and Swami, Ananthram},
+journal = {arXiv preprint arXiv:1602.02697},
+title = {{Practical black-box attacks against deep learning systems using adversarial examples}},
+year = {2016}
+}
+@inproceedings{papernot2016limitations,
+author = {Papernot, Nicolas and McDaniel, Patrick and Jha, Somesh and Fredrikson, Matt and Celik, Z Berkay and Swami, Ananthram},
+booktitle = {Security and Privacy (EuroS{\&}P), 2016 IEEE European Symposium on},
+organization = {IEEE},
+pages = {372--387},
+title = {{The limitations of deep learning in adversarial settings}},
+year = {2016}
+}
+@inproceedings{papernot2016distillation,
+author = {Papernot, Nicolas and McDaniel, Patrick and Wu, Xi and Jha, Somesh and Swami, Ananthram},
+booktitle = {Security and Privacy (SP), 2016 IEEE Symposium on},
+organization = {IEEE},
+pages = {582--597},
+title = {{Distillation as a defense to adversarial perturbations against deep neural networks}},
+year = {2016}
+}
+@article{madry2017towards,
+author = {Madry, Aleksander and Makelov, Aleksandar and Schmidt, Ludwig and Tsipras, Dimitris and Vladu, Adrian},
+journal = {arXiv preprint arXiv:1706.06083},
+title = {{Towards deep learning models resistant to adversarial attacks}},
+year = {2017}
+}
+@inproceedings{carlini2017towards,
+author = {Carlini, Nicholas and Wagner, David},
+booktitle = {Security and Privacy (SP), 2017 IEEE Symposium on},
+organization = {IEEE},
+pages = {39--57},
+title = {{Towards evaluating the robustness of neural networks}},
+year = {2017}
+}
+@article{tramer2017space,
+abstract = {Adversarial examples are maliciously perturbed inputs designed to mislead machine learning (ML) models at test-time. They often transfer: the same adversarial example fools more than one model. In this work, we propose novel methods for estimating the previously unknown dimensionality of the space of adversarial inputs. We find that adversarial examples span a contiguous subspace of large ({\~{}}25) dimensionality. Adversarial subspaces with higher dimensionality are more likely to intersect. We find that for two different models, a significant fraction of their subspaces is shared, thus enabling transferability. In the first quantitative analysis of the similarity of different models' decision boundaries, we show that these boundaries are actually close in arbitrary directions, whether adversarial or benign. We conclude by formally studying the limits of transferability. We derive (1) sufficient conditions on the data distribution that imply transferability for simple model classes and (2) examples of scenarios in which transfer does not occur. These findings indicate that it may be possible to design defenses against transfer-based attacks, even for models that are vulnerable to direct attacks.},
+archivePrefix = {arXiv},
+arxivId = {1704.03453},
+author = {Tram{\`{e}}r, Florian and Papernot, Nicolas and Goodfellow, Ian and Boneh, Dan and McDaniel, Patrick},
+eprint = {1704.03453},
+journal = {arXiv preprint arXiv:1704.03453},
+month = {apr},
+title = {{The Space of Transferable Adversarial Examples}},
+url = {https://arxiv.org/pdf/1704.03453v2.pdf http://arxiv.org/abs/1704.03453},
+year = {2017}
+}
+@article{tramer2017ensemble,
+abstract = {Machine learning models are vulnerable to adversarial examples, inputs maliciously perturbed to mislead the model. These inputs transfer between models, thus enabling black-box attacks against deployed models. Adversarial training increases robustness to attacks by injecting adversarial examples into training data. Surprisingly, we find that although adversarially trained models exhibit strong robustness to some white-box attacks (i.e., with knowledge of the model parameters), they remain highly vulnerable to transferred adversarial examples crafted on other models. We show that the reason for this vulnerability is the model's decision surface exhibiting sharp curvature in the vicinity of the data points, thus hindering attacks based on first-order approximations of the model's loss, but permitting black-box attacks that use adversarial examples transferred from another model. We harness this observation in two ways: First, we propose a simple yet powerful novel attack that first applies a small random perturbation to an input, before finding the optimal perturbation under a first-order approximation. Our attack outperforms prior "single-step" attacks on models trained with or without adversarial training. Second, we propose Ensemble Adversarial Training, an extension of adversarial training that additionally augments training data with perturbed inputs transferred from a number of fixed pre-trained models. On MNIST and ImageNet, ensemble adversarial training vastly improves robustness to black-box attacks.},
+archivePrefix = {arXiv},
+arxivId = {1705.07204},
+author = {Tram{\`{e}}r, Florian and Kurakin, Alexey and Papernot, Nicolas and Boneh, Dan and McDaniel, Patrick},
+eprint = {1705.07204},
+journal = {arXiv preprint arXiv:1705.07204},
+month = {may},
+title = {{Ensemble Adversarial Training: Attacks and Defenses}},
+url = {http://arxiv.org/abs/1705.07204},
+year = {2017}
+}
+@article{cisse2017houdini,
+author = {Cisse, Moustapha and Adi, Yossi and Neverova, Natalia and Keshet, Joseph},
+journal = {arXiv preprint arXiv:1707.05373},
+title = {{Houdini: Fooling Deep Structured Prediction Models}},
+year = {2017}
+}
+@inproceedings{obfuscated-gradients,
+author = {Athalye, Anish and Carlini, Nicholas and Wagner, David},
+booktitle = {Proceedings of the 35th International Conference on Machine Learning, {\{}ICML{\}} 2018},
+month = {jul},
+title = {{Obfuscated Gradients Give a False Sense of Security: Circumventing Defenses to Adversarial Examples}},
+url = {https://arxiv.org/abs/1802.00420},
+year = {2018}
+}
+@article{DBLP:journals/corr/abs-1801-02774,
+archivePrefix = {arXiv},
+arxivId = {1801.02774},
+author = {Gilmer, Justin and Metz, Luke and Faghri, Fartash and Schoenholz, Samuel S and Raghu, Maithra and Wattenberg, Martin and Goodfellow, Ian J},
+eprint = {1801.02774},
+journal = {CoRR},
+title = {{Adversarial Spheres}},
+url = {http://arxiv.org/abs/1801.02774},
+volume = {abs/1801.02774},
+year = {2018}
+}
