@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>About on Nilay Thakor</title>
-    <link>https://nthakor.me/about/</link>
+    <link>https://nthakor.me/static/about/</link>
     <description>Recent content in About on Nilay Thakor</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&amp;copy; Nilay Thakor 2018</copyright>
     
-	<atom:link href="https://nthakor.me/about/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://nthakor.me/static/about/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>
