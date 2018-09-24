@@ -3,35 +3,35 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://nthakor.me/static/blog/first/</loc>
+    <loc>https://nthakor.me/blog/first/</loc>
     <lastmod>2018-04-24T17:44:36-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://nthakor.me/static/</loc>
+    <loc>https://nthakor.me/</loc>
     <lastmod>2018-04-24T17:44:36-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://nthakor.me/static/blog/</loc>
+    <loc>https://nthakor.me/blog/</loc>
     <lastmod>2018-04-24T17:44:36-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://nthakor.me/static/about/</loc>
+    <loc>https://nthakor.me/about/</loc>
   </url>
   
   <url>
-    <loc>https://nthakor.me/static/categories/</loc>
+    <loc>https://nthakor.me/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://nthakor.me/static/projects/</loc>
+    <loc>https://nthakor.me/projects/</loc>
   </url>
   
   <url>
-    <loc>https://nthakor.me/static/tags/</loc>
+    <loc>https://nthakor.me/tags/</loc>
     <priority>0</priority>
   </url>
   
