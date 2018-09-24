@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Nilay Thakor</title>
+    <link>https://nthakor.me/blog/</link>
+    <description>Recent content on Nilay Thakor</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; Nilay Thakor 2018</copyright>
+    <lastBuildDate>Tue, 24 Apr 2018 17:44:36 -0700</lastBuildDate>
+    
+	<atom:link href="https://nthakor.me/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Mode Collapse</title>
+      <link>https://nthakor.me/blog/first/</link>
+      <pubDate>Tue, 24 Apr 2018 17:44:36 -0700</pubDate>
+      
+      <guid>https://nthakor.me/blog/first/</guid>
+      <description>MathJax.Hub.Config({ tex2jax: { inlineMath: [[&#39;$&#39;,&#39;$&#39;], [&#39;\\(&#39;,&#39;\\)&#39;]], displayMath: [[&#39;$$&#39;,&#39;$$&#39;]], processEscapes: true, processEnvironments: true, skipTags: [&#39;script&#39;, &#39;noscript&#39;, &#39;style&#39;, &#39;textarea&#39;, &#39;pre&#39;], TeX: { equationNumbers: { autoNumber: &#34;AMS&#34; }, extensions: [&#34;AMSmath.js&#34;, &#34;AMSsymbols.js&#34;] } } }); MathJax.Hub.Queue(function() { // Fix  tags after MathJax finishes running. This is a // hack to overcome a shortcoming of Markdown. Discussion at // https://github.com/mojombo/jekyll/issues/199 var all = MathJax.Hub.getAllJax(), i; for(i = 0; i Problem Issue of mode collapse is often observed in Generative Modelling.</description>
+    </item>
+    
+  </channel>
+</rss>

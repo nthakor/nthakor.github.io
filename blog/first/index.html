@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <meta name="generator" content="Hugo 0.48" />
+  <meta name="author" content="Nilay Thakor">
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Merriweather:400,700%7cOpen&#43;Sans:400,400italic,700%7cRoboto&#43;Mono%25!%28EXTRA%20*hugolib.PageOutput=Page%28/blog/first.md%29%29">
+  <link rel="stylesheet" href="/styles.css">
+  
+
+  
+
+  
+  <link rel="alternate" href="https://nthakor.me/index.xml" type="application/rss+xml" title="Nilay Thakor">
+  <link rel="feed" href="https://nthakor.me/index.xml" type="application/rss+xml" title="Nilay Thakor">
+  
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/img/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="https://nthakor.me/blog/first/">
+
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="twitter:site" content="@nilay_thakor">
+  <meta property="twitter:creator" content="@nilay_thakor">
+  
+  <meta property="og:site_name" content="Nilay Thakor">
+  <meta property="og:url" content="https://nthakor.me/blog/first/">
+  <meta property="og:title" content="Mode Collapse | Nilay Thakor">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2018-04-24T17:44:36-07:00">
+  
+  <meta property="article:modified_time" content="2018-04-24T17:44:36-07:00">
+  
+
+  <title>Mode Collapse | Nilay Thakor</title>
+
+  
+
+</head>
+<body>
+
+<style type="text/css">
+
+.masthead-hero {
+  background-image: url("https://nthakor.me/img/hero.jpg");
+}
+</style>
+
+<div class="masthead-hero"></div>
+
+
+<div id="main" role="main">
+  <div class="sidebar sticky" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <div class="author-avatar">
+    <a href="/">
+      <img src="/img/portrait.jpg" alt="Nilay Thakor" itemprop="image">
+    </a>
+  </div>
+  <div class="author-content">
+    <h3 class="author-name" itemprop="name">Nilay Thakor</h3>
+    <p class="author-bio" itemprop="description">Research Fellow, Machine Learning</p>
+  </div>
+  <div class="author-urls-wrapper">
+    <ul class="author-urls social-icons" aria-hidden="true">
+      <li itemprop="homeLocation" itemscope itemtype="http://schema.org/Place">
+        <span itemprop="name">Gandhinagar, India</span>
+      </li>
+      
+      <li>
+        <a itemprop="sameAs" href="//linkedin.com/in/nilay-thakor-36157b7b" target="_blank" rel="noopener">
+          <i class="fa fa-linkedin"></i>
+          LinkedIn
+        </a>
+      </li>
+      
+      <li>
+        <a itemprop="sameAs" href="//twitter.com/nilay_thakor" target="_blank" rel="noopener">
+          <i class="fa fa-twitter"></i>
+          Twitter
+        </a>
+      </li>
+      
+      <li>
+        <a itemprop="sameAs" href="//github.com/nthakor" target="_blank" rel="noopener">
+          <i class="fa fa-github"></i>
+          Github
+        </a>
+      </li>
+      
+    </ul>  
+  </div>
+</div>
+
+  <article class="page">
+		<div class="page_container">
+			<section class="page_content">
+				<div class="navbar-hero">
+	<nav>
+		<a href="/">Home</a>&nbsp&nbsp•&nbsp&nbsp
+		<a href="/projects">Projects</a>&nbsp&nbsp•&nbsp&nbsp
+		<a href="/blog">Blog</a>&nbsp&nbsp•&nbsp&nbsp
+		<a href="/about">About</a>
+	</nav>
+</div>
+				<article class="post" itemscope itemtype="http://schema.org/Article">
+  <div class="post-container">
+    <h1 itemprop="name"><a href="https://nthakor.me/blog/first/">Mode Collapse</a></h1>
+
+    
+      
+
+<div class="post-metadata">
+
+  <span class="post-date">
+    
+    <time datetime="2018-04-24 17:44:36 -0700 -0700" itemprop="datePublished dateModified">
+      Apr 24, 2018
+    </time>
+  </span>
+
+  
+
+</div>
+
+    
+
+    <div class="post-style" itemprop="articleBody">
+      
+      
+
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+  });
+  MathJax.Hub.Queue(function() {
+    // Fix <code> tags after MathJax finishes running. This is a
+    // hack to overcome a shortcoming of Markdown. Discussion at
+    // https://github.com/mojombo/jekyll/issues/199
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+  // Autonumbering by mathjax
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
+
+<h2 id="problem"><strong>Problem</strong></h2>
+
+<p>Issue of mode collapse is often observed in Generative Modelling. Suppose the original distribution of the dataset is $\mathcal{P}$ and learned distribution is $\mathcal{Q}$. The mode collapse is said to be occur when sample generate from Q does not represent all the modes present in $\mathcal{P}$. For the practical purposes the definition of mode is equated to the class. So one practical example of mode collapse is a generative model train on <a href="http://yann.lecun.com/exdb/mnist/" target="_blank">MNIST</a> dataset only samples images exclude images from certain class completely. Mode collapse is mainly observed in implicit methods of distribution learning such as GANs.</p>
+
+<p><img src="/img/gaussian_mode_collapse.png" alt="Mode Collapse in Mixture Models" /></p>
+
+<p>Above image is a representation of mode collapse issue in 1-D Gaussian Mixture Models</p>
+
+<ul>
+<li>## <strong>Why Mode Collapse Occur?</strong></li>
+</ul>
+
+<p>Recent Paper such as <a href="https://arxiv.org/abs/1706.08224" target="_blank">Arora et. al</a> have shown that finite capacity discriminators are not capable of learning complex high dimensional distributions. But any theory suggesting probable cause of mode collapse has not appeared yet.</p>
+
+<p>Efforts to resolving this effort has been largely divided into two catagories.</p>
+
+<h3 id="a-gan-vae-hybrid">A. GAN-VAE Hybrid</h3>
+
+<p>The mode collapse problem has not been observed in explicit generative models such as as Variational Auto Encoders. To leverage this results many approaches have tried to mitigate mode collapse by creating a VAE-GAN hybrid. Some of the examples include: <a href="https://arxiv.org/abs/1511.05644" target="_blank">Adversarial Autoencoders</a>, <a href="https://arxiv.org/abs/1701.04722" target="_blank">Adversarial Variational Bayes</a> , <a href="https://arxiv.org/abs/1705.07761" target="_blank">VEEGAN</a> , <a href="https://arxiv.org/abs/1606.00704" target="_blank">ALI</a> , <a href="https://arxiv.org/abs/1605.09782" target="_blank">BIGAN</a> etc.</p>
+
+<p>This models have either tried to add an encoder for GAN or <a href="https://arxiv.org/abs/1702.08235" target="_blank">convert ELBO bound into implicit density learning using a classifier</a>.</p>
+
+<p>But some of the large scale <a href="https://arxiv.org/abs/1802.06847" target="_blank">empirical</a>,(<a href="http://efrosgans.eecs.berkeley.edu/CVPR18_slides/VAE_GANS_by_Rosca.pdf" target="_blank">slides</a>) and <a href="http://www.offconvex.org/2018/03/12/bigan/" target="_blank">theoritical</a> studies have shown that this models have not contributed in stabilizing the training of GANs.</p>
+
+<h3 id="b-changing-objective-function">B. Changing Objective Function</h3>
+
+<p>Another path explored by multiple research papers to solve mode collapse has been modifying the objective function of GAN. Models like <a href="https://arxiv.org/abs/1701.07875" target="_blank">Wasserstein GAN</a> have tried using Earth Mover distance function as GAN critic. Following image does a great job of explaining multiple objective functions.</p>
+
+<p><img src="/img/gan_models.png" alt="GAN Objective Functions" /></p>
+
+<p><a href="https://arxiv.org/pdf/1711.10337.pdf" target="_blank">This</a> large scale empirical study of many GAN models has argued that performance improvement reported in these models can be simply achieved by performing exhaustive parameter search in original GAN model. Many empirical results have shown that issue of mode collapse still persists in all of these models. Analysis performed by <a href="https://arxiv.org/abs/1711.00970" target="_blank">Shibani et al.</a> have demonstrated this issue.</p>
+
+<ul>
+<li>## <strong>Challenge in Solving Mode Collapse</strong></li>
+</ul>
+
+<p>The issue of mode collapse is very closely attached with the idea of class. The existing measures of evaluating similarities in probability distribution includes divergence measure, IPM etc. None of these metrics individually provide a clear idea of distance between distributions at modes. So it becomes a crucial challenge to quantify the &ldquo;<em>Mode Collapse</em>&ldquo;</p>
+
+<!-- ### Quantifying Mode Collapse
+
+One of the simplest way to quantify mode collapse is by using the idea of class. Suppose there exists a data space $(X,y)$ such that X is the sample and y is class label associated with it. So we define a distance measure between $\mathcal{P}$ &s $\mathcal{Q}$ such that:
+
+`$$ \text{dist}(\mathcal{P},\mathcal{Q}) \propto D_{f}(\mathcal{P}(y|X),\mathcal{Q}(y|X)) $$`
+Where $D_f$ is any divergence measure. 
+
+But in the real data, we do not have any information regarding the class of the samples. So the natural extension of this idea is to think in terms of unsupervised learning. So we look into the clusters of the data. Let us assume that $x_1,x_2,\dots,x_n$ are sample generate by $\mathcal{P}$ and $\hat{x_1},\hat{x_2},\dots,\hat{x_n}$ are samples generated by $\mathcal{Q}$. 
+
+
+
+The idea suggested here is very similar to [Inception score](https://arxiv.org/pdf/1801.01973.pdf). 
+$$
+\mathrm { IS } ( G ) = \exp \left( \mathbb { E } _ { \mathbf { x } \sim p _ { g } } D _ { K L } ( p ( y | \mathbf { x } ) \| p ( y ) ) \right)
+$$
+In case of inception score, $p(y|X)$ is probability of classifier assignment. Using the idea of clustering we can calculate $p(y|X)$ in following manner. 
+
+Suppose c_1,c_2,\dots c_k are cluster centres of x_1,x_2,\dots,x_n Now,
+
+
+$$
+\begin{align}
+p(y_k|\hat{x}i) &= \frac{exp(\hat{x}_i - c_k)}{\sum_j exp(\hat{x}_i - c_j)} \\
+
+    &= softmax(\hat{x}_i - c_k) \quad c_k = k^{th}\text{ center mean}
+
+\end{align}
+$$
+
+
+
+
+
+
+$$
+\begin{align}
+    p(y) &= \mathbb{E}_{x \sim p_g(x)} \left[ p(y|X) \right] \\
+    p(y) &\approx \sum_{x_k}p(y|) 
+\end{align}
+$$ -->
+
+    </div>
+
+    
+      
+
+    
+
+    
+      
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Mode%20Collapse&amp;url=https%3a%2f%2fnthakor.me%2fblog%2ffirst%2f"
+         target="_blank" rel="noopener">
+        <i class="fa fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fnthakor.me%2fblog%2ffirst%2f"
+         target="_blank" rel="noopener">
+        <i class="fa fa-facebook"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fnthakor.me%2fblog%2ffirst%2f&amp;title=Mode%20Collapse"
+         target="_blank" rel="noopener">
+        <i class="fa fa-linkedin"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Mode%20Collapse&amp;body=https%3a%2f%2fnthakor.me%2fblog%2ffirst%2f">
+        <i class="fa fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+    
+
+    
+      
+
+    
+
+  </div>
+</article>
+			</section>
+		</div>
+	</article>
+</div> 
+
+<div class="page_footer">
+	<p>&copy; Nilay Thakor 2018. Powered by <a href="http://gohugo.io/">Hugo</a> and <a href="https://github.com/jhu247/minimal-academic">Minimal Academic</a>.</p>
+</div>
+    
+    
+
+
+  </body>
+</html>
