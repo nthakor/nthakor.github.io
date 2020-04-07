@@ -1,6 +1,6 @@
 #top_div{
     position: absolute;
-    width: 90.0%;
+    width: 100.0%;
     left: 0.0%;
     top: 0.0%;
     z-index: 999999;
@@ -14,7 +14,7 @@
 }
 .grid-container-top {
     display: grid;
-    grid-template-columns: 25% auto;
+    grid-template-columns: 25% auto 25%;
 }
 .grid-container-bottom {
     display: grid;
