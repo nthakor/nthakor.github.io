@@ -1,6 +1,6 @@
 google_auth_oauthlib==0.4.1
 pandas==1.0.1
-numpy==1.21.0
+numpy==1.22.0
 requests==2.23.0
 folium==0.10.1
 branca==0.3.1
