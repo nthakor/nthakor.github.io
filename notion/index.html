@@ -2,40 +2,91 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
-<title>Nilay's Productivity OS — Visual Guide</title>
+<title>Nilay's Productivity OS — Replication Guide</title>
 <style>
-  :root{--bg:#fafaf7;--ink:#1f1f1f;--muted:#666;--line:#e5e3dc;--accent:#2f6f4e;--card:#fff;}
+  :root{
+    --bg:#f7f5ef;--ink:#1e1e1e;--muted:#6b6b6b;--line:#e6e2d6;
+    --accent:#2f6f4e;--accent2:#7c5cff;--card:#ffffff;
+    --people:#f3e8ff;--people-ink:#6b21a8;
+    --areas:#dcfce7;--areas-ink:#166534;
+    --proj:#dbeafe;--proj-ink:#1e40af;
+    --meet:#fed7aa;--meet-ink:#9a3412;
+    --task:#fee2e2;--task-ink:#991b1b;
+    --note:#fef3c7;--note-ink:#854d0e;
+  }
   *{box-sizing:border-box}
-  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink);max-width:980px;margin:0 auto;padding:48px 32px;line-height:1.55;}
-  h1{font-size:34px;margin:0 0 6px}
-  h2{font-size:24px;margin-top:48px;border-bottom:1px solid var(--line);padding-bottom:6px}
-  h3{font-size:18px;margin-top:28px}
-  .sub{color:var(--muted);margin-bottom:32px}
-  .diagram{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px;margin:24px 0;overflow:auto}
-  table{border-collapse:collapse;width:100%;margin:16px 0;background:var(--card)}
-  th,td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top;font-size:14px}
-  th{background:#f1efe8}
-  code{background:#f1efe8;padding:2px 6px;border-radius:4px;font-size:13px}
-  .pill{display:inline-block;padding:2px 10px;border-radius:999px;font-size:12px;font-weight:600;margin-right:4px}
-  .p-people{background:#f3e8ff;color:#6b21a8}
-  .p-areas{background:#dcfce7;color:#166534}
-  .p-proj{background:#dbeafe;color:#1e40af}
-  .p-meet{background:#fed7aa;color:#9a3412}
-  .p-task{background:#fee2e2;color:#991b1b}
-  .p-note{background:#fef3c7;color:#854d0e}
-  ol li,ul li{margin:6px 0}
-  .callout{background:#eef6f1;border-left:4px solid var(--accent);padding:14px 18px;border-radius:6px;margin:18px 0}
-  .step{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:14px 18px;margin:10px 0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,sans-serif;background:var(--bg);color:var(--ink);max-width:1000px;margin:0 auto;padding:48px 32px;line-height:1.6}
+  .hero{background:linear-gradient(135deg,#2f6f4e 0%,#7c5cff 100%);color:#fff;padding:48px 40px;border-radius:18px;margin-bottom:40px;box-shadow:0 10px 40px rgba(47,111,78,.18)}
+  .hero h1{font-size:38px;margin:0 0 8px;font-weight:800;letter-spacing:-.5px}
+  .hero p{margin:0;opacity:.92;font-size:17px}
+  h2{font-size:26px;margin-top:56px;border-bottom:1px solid var(--line);padding-bottom:8px;letter-spacing:-.3px}
+  h3{font-size:19px;margin-top:32px;color:var(--accent)}
+  h4{font-size:16px;margin-top:20px;margin-bottom:6px}
+  .sub{color:var(--muted);font-size:15px}
+  .diagram{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px;margin:24px 0;overflow:auto;box-shadow:0 2px 10px rgba(0,0,0,.03)}
+  table{border-collapse:collapse;width:100%;margin:16px 0;background:var(--card);border-radius:10px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.03)}
+  th,td{border-bottom:1px solid var(--line);padding:12px 14px;text-align:left;vertical-align:top;font-size:14px}
+  th{background:#f1efe6;font-weight:600}
+  tr:last-child td{border-bottom:none}
+  code{background:#f1efe6;padding:2px 7px;border-radius:5px;font-size:13px;font-family:"SF Mono",Menlo,monospace}
+  .pill{display:inline-block;padding:3px 11px;border-radius:999px;font-size:12px;font-weight:600;margin:2px 3px 2px 0}
+  .p-people{background:var(--people);color:var(--people-ink)}
+  .p-areas{background:var(--areas);color:var(--areas-ink)}
+  .p-proj{background:var(--proj);color:var(--proj-ink)}
+  .p-meet{background:var(--meet);color:var(--meet-ink)}
+  .p-task{background:var(--task);color:var(--task-ink)}
+  .p-note{background:var(--note);color:var(--note-ink)}
+  ol li,ul li{margin:7px 0}
+  .callout{background:#eef6f1;border-left:4px solid var(--accent);padding:16px 20px;border-radius:8px;margin:18px 0}
+  .callout.warn{background:#fff7ed;border-left-color:#c2410c}
+  .callout.tip{background:#f5f3ff;border-left-color:var(--accent2)}
+  .step{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 20px;margin:12px 0;box-shadow:0 1px 4px rgba(0,0,0,.03)}
   .step b{color:var(--accent)}
+  .step-num{display:inline-block;background:var(--accent);color:#fff;width:26px;height:26px;border-radius:50%;text-align:center;line-height:26px;font-weight:700;font-size:13px;margin-right:8px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:16px 0}
+  .grid2 .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px}
+  .toc{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 24px;margin:0 0 32px}
+  .toc a{color:var(--accent);text-decoration:none;display:block;margin:4px 0;font-size:14px}
+  .toc a:hover{text-decoration:underline}
+  .mockup{background:#fafaf7;border:1px solid var(--line);border-radius:12px;padding:24px;margin:18px 0;font-family:-apple-system,sans-serif;box-shadow:inset 0 0 0 1px #fff,0 4px 14px rgba(0,0,0,.04)}
+  .mockup-cover{height:80px;background:linear-gradient(135deg,#fbcfe8 0%,#a78bfa 50%,#60a5fa 100%);border-radius:8px;margin:-12px -12px 16px}
+  .mockup-icon{font-size:42px;line-height:1;margin-top:-30px;display:inline-block;background:#fff;padding:6px 10px;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,.1)}
+  .mockup-quote{font-style:italic;color:#666;border-left:3px solid #ccc;padding:6px 14px;margin:14px 0}
+  .mockup-callout{background:#eef6f1;border-radius:6px;padding:10px 14px;margin:10px 0;font-size:14px}
+  .mockup-h2{font-size:20px;font-weight:700;margin:20px 0 8px}
+  .key{background:#1e1e1e;color:#fff;padding:2px 8px;border-radius:4px;font-size:12px;font-family:monospace}
 </style>
 </head>
 <body>
 
+<div class="hero">
 <h1>🧠 Nilay's Productivity OS</h1>
-<div class="sub">A hybrid <b>PARA + GTD</b> system in Notion. Capture once, surface everywhere.</div>
+<p>A hybrid PARA + GTD system in Notion. Capture once, surface everywhere.</p>
+</div>
 
-<h2>1. The system at a glance</h2>
-<p>Six databases, connected by relations. The arrows below show how a single piece of information flows through the system without ever being typed twice.</p>
+<div class="toc">
+<b>Contents</b>
+<a href="#why">1. Why this system</a>
+<a href="#diagram">2. The system at a glance</a>
+<a href="#dbs">3. The 6 databases (with schemas)</a>
+<a href="#views">4. Views you'll actually use</a>
+<a href="#flow">5. The daily flow + worked example</a>
+<a href="#home">6. The fancy home page (design + recreate)</a>
+<a href="#replicate">7. Step-by-step replication from scratch</a>
+<a href="#rituals">8. Daily and weekly rituals</a>
+<a href="#templates">9. Meeting templates</a>
+</div>
+
+<h2 id="why">1. Why this system</h2>
+<p>You wear three hats every day — engineering manager (1:1s, hiring, growth), project lead (technical work, decisions, RFCs), and individual (your own todos and notes). The single biggest productivity tax for managers is <b>writing the same thing in multiple places</b>: meeting notes in one doc, action items in another, project status in a third, and 1:1 themes in a fourth.</p>
+
+<p>The fix is a relational database setup where each piece of information lives in exactly one row, but <i>surfaces</i> in every relevant view automatically. PARA gives you the categorization (People / Areas / Projects), GTD gives you the action discipline (Inbox → Next → Waiting → Done), and Notion's relations stitch them together.</p>
+
+<div class="callout">
+<b>The core insight:</b> meeting-centric input, project-centric output. You write notes <i>during</i> meetings (where your attention is) but you review them <i>by project</i> (where your work is). The relations make this free.
+</div>
+
+<h2 id="diagram">2. The system at a glance</h2>
 
 <div class="diagram">
 <svg viewBox="0 0 920 540" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;font-family:-apple-system,sans-serif">
@@ -45,352 +96,316 @@
     </marker>
   </defs>
 
-  <!-- AREAS -->
   <rect x="40" y="40" width="170" height="70" rx="10" fill="#dcfce7" stroke="#166534" stroke-width="1.5"/>
   <text x="125" y="68" text-anchor="middle" font-size="16" font-weight="700" fill="#166534">🗂  Areas</text>
-  <text x="125" y="90" text-anchor="middle" font-size="11" fill="#166534">long-lived buckets</text>
+  <text x="125" y="90" text-anchor="middle" font-size="11" fill="#166534">Ongoing responsibilities</text>
 
-  <!-- PROJECTS -->
-  <rect x="375" y="40" width="170" height="70" rx="10" fill="#dbeafe" stroke="#1e40af" stroke-width="1.5"/>
-  <text x="460" y="68" text-anchor="middle" font-size="16" font-weight="700" fill="#1e40af">📁  Projects</text>
-  <text x="460" y="90" text-anchor="middle" font-size="11" fill="#1e40af">outcome + end date</text>
+  <rect x="40" y="220" width="170" height="70" rx="10" fill="#f3e8ff" stroke="#6b21a8" stroke-width="1.5"/>
+  <text x="125" y="248" text-anchor="middle" font-size="16" font-weight="700" fill="#6b21a8">👥  People</text>
+  <text x="125" y="270" text-anchor="middle" font-size="11" fill="#6b21a8">Manager, reports, peers</text>
 
-  <!-- PEOPLE -->
-  <rect x="710" y="40" width="170" height="70" rx="10" fill="#f3e8ff" stroke="#6b21a8" stroke-width="1.5"/>
-  <text x="795" y="68" text-anchor="middle" font-size="16" font-weight="700" fill="#6b21a8">👥  People</text>
-  <text x="795" y="90" text-anchor="middle" font-size="11" fill="#6b21a8">manager, reports, peers</text>
+  <rect x="380" y="40" width="170" height="70" rx="10" fill="#dbeafe" stroke="#1e40af" stroke-width="1.5"/>
+  <text x="465" y="68" text-anchor="middle" font-size="16" font-weight="700" fill="#1e40af">📁  Projects</text>
+  <text x="465" y="90" text-anchor="middle" font-size="11" fill="#1e40af">Time-bounded outcomes</text>
 
-  <!-- MEETINGS -->
-  <rect x="210" y="240" width="180" height="70" rx="10" fill="#fed7aa" stroke="#9a3412" stroke-width="1.5"/>
-  <text x="300" y="268" text-anchor="middle" font-size="16" font-weight="700" fill="#9a3412">📅  Meetings &amp; 1:1s</text>
-  <text x="300" y="290" text-anchor="middle" font-size="11" fill="#9a3412">where notes are captured</text>
+  <rect x="380" y="220" width="170" height="70" rx="10" fill="#fed7aa" stroke="#9a3412" stroke-width="1.5"/>
+  <text x="465" y="248" text-anchor="middle" font-size="16" font-weight="700" fill="#9a3412">📅  Meetings</text>
+  <text x="465" y="270" text-anchor="middle" font-size="11" fill="#9a3412">1:1s & project syncs</text>
 
-  <!-- TASKS -->
-  <rect x="540" y="240" width="180" height="70" rx="10" fill="#fee2e2" stroke="#991b1b" stroke-width="1.5"/>
-  <text x="630" y="268" text-anchor="middle" font-size="16" font-weight="700" fill="#991b1b">✅  Tasks</text>
-  <text x="630" y="290" text-anchor="middle" font-size="11" fill="#991b1b">atomic next actions</text>
+  <rect x="710" y="130" width="170" height="70" rx="10" fill="#fee2e2" stroke="#991b1b" stroke-width="1.5"/>
+  <text x="795" y="158" text-anchor="middle" font-size="16" font-weight="700" fill="#991b1b">✅  Tasks</text>
+  <text x="795" y="180" text-anchor="middle" font-size="11" fill="#991b1b">Atomic action items</text>
 
-  <!-- NOTES -->
-  <rect x="375" y="430" width="170" height="70" rx="10" fill="#fef3c7" stroke="#854d0e" stroke-width="1.5"/>
-  <text x="460" y="458" text-anchor="middle" font-size="16" font-weight="700" fill="#854d0e">📝  Notes &amp; Knowledge</text>
-  <text x="460" y="480" text-anchor="middle" font-size="11" fill="#854d0e">decisions, ideas, refs</text>
+  <rect x="380" y="400" width="170" height="70" rx="10" fill="#fef3c7" stroke="#854d0e" stroke-width="1.5"/>
+  <text x="465" y="428" text-anchor="middle" font-size="16" font-weight="700" fill="#854d0e">📝  Notes</text>
+  <text x="465" y="450" text-anchor="middle" font-size="11" fill="#854d0e">Reference & knowledge</text>
 
-  <!-- ARROWS -->
-  <!-- Areas -> Projects -->
-  <line x1="210" y1="75" x2="375" y2="75" stroke="#666" stroke-width="1.5" marker-end="url(#arrow)"/>
-  <text x="290" y="68" text-anchor="middle" font-size="10" fill="#555">contains</text>
+  <line x1="210" y1="75"  x2="380" y2="75"  stroke="#888" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="210" y1="255" x2="380" y2="255" stroke="#888" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="210" y1="255" x2="380" y2="75"  stroke="#888" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="465" y1="220" x2="465" y2="110" stroke="#888" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="550" y1="255" x2="710" y2="165" stroke="#c2410c" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <line x1="550" y1="75"  x2="710" y2="155" stroke="#888" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="210" y1="265" x2="710" y2="180" stroke="#888" stroke-width="1.2" marker-end="url(#arrow)" stroke-dasharray="4,3"/>
+  <line x1="465" y1="290" x2="465" y2="400" stroke="#888" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="550" y1="435" x2="465" y2="110" stroke="#888" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
 
-  <!-- People -> Projects (stakeholders) -->
-  <line x1="710" y1="75" x2="545" y2="75" stroke="#666" stroke-width="1.5" marker-end="url(#arrow)"/>
-  <text x="625" y="68" text-anchor="middle" font-size="10" fill="#555">stakeholders</text>
-
-  <!-- Projects -> Meetings -->
-  <line x1="430" y1="110" x2="320" y2="240" stroke="#666" stroke-width="1.5" marker-end="url(#arrow)"/>
-  <text x="350" y="180" font-size="10" fill="#555">scheduled for</text>
-
-  <!-- Projects -> Tasks -->
-  <line x1="490" y1="110" x2="610" y2="240" stroke="#666" stroke-width="1.5" marker-end="url(#arrow)"/>
-  <text x="565" y="180" font-size="10" fill="#555">broken into</text>
-
-  <!-- People -> Meetings (attendees) -->
-  <line x1="735" y1="110" x2="385" y2="245" stroke="#666" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
-  <text x="600" y="160" font-size="10" fill="#555">attendees</text>
-
-  <!-- People -> Tasks (assignee) -->
-  <line x1="800" y1="110" x2="710" y2="240" stroke="#666" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
-  <text x="775" y="180" font-size="10" fill="#555">assignee</text>
-
-  <!-- Meetings -> Tasks (the magic edge) -->
-  <line x1="390" y1="275" x2="540" y2="275" stroke="#2f6f4e" stroke-width="2.5" marker-end="url(#arrow)"/>
-  <text x="465" y="268" text-anchor="middle" font-size="11" font-weight="700" fill="#2f6f4e">spawns</text>
-
-  <!-- Meetings -> Notes -->
-  <line x1="320" y1="310" x2="420" y2="430" stroke="#666" stroke-width="1.5" marker-end="url(#arrow)"/>
-  <text x="350" y="380" font-size="10" fill="#555">captures</text>
-
-  <!-- Projects -> Notes -->
-  <line x1="460" y1="110" x2="460" y2="430" stroke="#666" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
-  <text x="468" y="270" font-size="10" fill="#555">tagged to</text>
-
-  <!-- Tasks -> Notes (decisions) -->
-  <line x1="610" y1="310" x2="510" y2="430" stroke="#666" stroke-width="1.5" marker-end="url(#arrow)"/>
-  <text x="585" y="380" font-size="10" fill="#555">may produce</text>
-
-  <text x="460" y="528" text-anchor="middle" font-size="11" fill="#888">Solid arrows = primary flow • Dashed = roll-ups for views</text>
+  <text x="620" y="200" font-size="11" fill="#c2410c" font-weight="700">Meeting → Task</text>
+  <text x="620" y="214" font-size="10" fill="#c2410c">(the linchpin)</text>
 </svg>
 </div>
 
-<div class="callout">
-<b>The one rule that makes the whole thing work:</b> you only ever type something <i>once</i>, and that's almost always inside a Meeting note. Everything else is a relation that surfaces it where you need it.
-</div>
+<p class="sub">Solid arrows = direct two-way relations. Dashed = task-assignee link. The orange "Meeting → Task" arrow is the linchpin that eliminates double-writing.</p>
 
-<h2>2. The flow — what happens when you take a note</h2>
-
-<div class="step"><b>Step 1.</b> You're in a 1:1 with your manager. You open a new page from the <span class="pill p-meet">Meetings</span> database, set Date + Attendees = your manager.</div>
-<div class="step"><b>Step 2.</b> You type during the meeting:<br><code>- [ ] Draft Q3 staffing plan — Friday</code></div>
-<div class="step"><b>Step 3.</b> After the meeting (literally 10 seconds), you select that line → "Turn into → Page in" → pick the <span class="pill p-task">Tasks</span> database. Set Project = "Q3 Planning", Assignee = you.</div>
-<div class="step"><b>Step 4.</b> That single keystroke now appears in:
-  <ul>
-    <li><b>Today</b> view of Tasks (because Status = Next, Due = Friday)</li>
-    <li>The <b>Q3 Planning</b> project page (rollup of all related tasks)</li>
-    <li>Your <b>manager's</b> People page (rollup of every task born in your 1:1s)</li>
-    <li>The <b>1:1 note itself</b> (still linked back via the Meeting relation)</li>
-  </ul>
-You wrote it once. It now lives in four places. That's the entire point.
-</div>
-
-<h2>3. The 6 databases — what each one holds</h2>
+<h2 id="dbs">3. The 6 databases</h2>
 
 <table>
-<tr><th>DB</th><th>Purpose</th><th>Key properties</th><th>Relations</th></tr>
-<tr><td><span class="pill p-areas">Areas</span></td><td>Long-lived responsibilities (Hiring, Team Leadership, Personal Growth). Never "done".</td><td>Area (title), Type, Description</td><td>← Projects</td></tr>
-<tr><td><span class="pill p-proj">Projects</span></td><td>Anything with an outcome and an end date.</td><td>Project, Status, Priority, Start, Target, Goal</td><td>Area, Stakeholders (People), Tasks, Meetings, Notes</td></tr>
-<tr><td><span class="pill p-task">Tasks</span></td><td>Atomic next actions (the GTD layer).</td><td>Task, Status (Inbox→Next→In Progress→Waiting→Done), Priority, Due, Do Date, Context</td><td>Project, Meeting, Assignee</td></tr>
-<tr><td><span class="pill p-meet">Meetings &amp; 1:1s</span></td><td>The capture layer. Every meeting note lives here.</td><td>Title, Date, Type (1:1 Mgr / 1:1 DR / Project / Sync / Stakeholder), Summary</td><td>Project, Attendees (People), Tasks, Notes</td></tr>
-<tr><td><span class="pill p-people">People</span></td><td>Manager, direct reports, peers, stakeholders. Each person becomes a hub.</td><td>Name, Role, Relationship, Team, Email</td><td>Meetings, Tasks, Projects (rollups)</td></tr>
-<tr><td><span class="pill p-note">Notes &amp; Knowledge</span></td><td>Ideas, decisions, learnings, references that aren't action items.</td><td>Title, Type (Idea/Reference/Decision/Learning), Tags</td><td>Project, Meeting</td></tr>
+<tr><th>Database</th><th>Title field</th><th>Key properties</th><th>Relations</th></tr>
+<tr>
+<td><span class="pill p-people">👥 People</span></td>
+<td>Name</td>
+<td>Relationship (Manager/Direct Report/Peer/Stakeholder/External), Role, Team, Email</td>
+<td>→ Projects (Stakeholders), → Meetings (Attendees), → Tasks (Assignee)</td>
+</tr>
+<tr>
+<td><span class="pill p-areas">🗂 Areas</span></td>
+<td>Area</td>
+<td>Type (Responsibility/Goal/Resource), Description</td>
+<td>→ Projects</td>
+</tr>
+<tr>
+<td><span class="pill p-proj">📁 Projects</span></td>
+<td>Project</td>
+<td>Status (Backlog/Planning/In Progress/Blocked/Done/Archived), Priority (P0–P3), Goal, Start, Target, PRJ (auto ID)</td>
+<td>→ Areas, → People (Stakeholders), → Meetings, → Tasks, → Notes</td>
+</tr>
+<tr>
+<td><span class="pill p-meet">📅 Meetings & 1:1s</span></td>
+<td>Title</td>
+<td>Type (1:1 Manager / 1:1 Direct Report / Project Meeting / Team Sync / Stakeholder / Other), Date, Summary</td>
+<td>→ People (Attendees), → Project, → Tasks, → Notes</td>
+</tr>
+<tr>
+<td><span class="pill p-task">✅ Tasks</span></td>
+<td>Task</td>
+<td>Status (Inbox/Next/In Progress/Waiting/Done), Priority (P0–P3), Context (@work/@home/@deep/@quick/@waiting), Do Date, Due, TSK (auto ID)</td>
+<td>→ Project, → Meeting, → People (Assignee) <b>← linchpin</b></td>
+</tr>
+<tr>
+<td><span class="pill p-note">📝 Notes & Knowledge</span></td>
+<td>Title</td>
+<td>Type, Tags, Created</td>
+<td>→ Project, → Meeting</td>
+</tr>
 </table>
 
-<h2>4. Why PARA + GTD (and not something else)</h2>
+<h2 id="views">4. Views you'll actually use</h2>
+
 <table>
-<tr><th>Model</th><th>Strength</th><th>Why it's not enough on its own for you</th></tr>
-<tr><td><b>Pure GTD</b></td><td>Daily execution, "next action" discipline</td><td>No home for ongoing manager responsibilities (your team, hiring). Weak on reference material.</td></tr>
-<tr><td><b>Pure PARA</b></td><td>Beautiful information architecture</td><td>No daily execution loop. You'll know where everything is but not what to do next.</td></tr>
-<tr><td><b>Bullet Journal / daily notes</b></td><td>Fast capture</td><td>Nothing connects. You re-write the same action item in 3 places — exactly what you said you want to avoid.</td></tr>
-<tr><td><b>Second Brain / Zettelkasten</b></td><td>Deep knowledge work</td><td>Overkill for an EM whose unit of work is meetings → decisions → actions, not essays.</td></tr>
-<tr><td><b>OKRs</b></td><td>Goal alignment</td><td>Heavy ceremony for individual use. Project goals + Areas cover the same intent.</td></tr>
-<tr><td><b>Eisenhower Matrix</b></td><td>Prioritization</td><td>It's a <i>lens</i>, not a system. Baked in via Priority P0–P3.</td></tr>
+<tr><th>Database</th><th>View</th><th>Type</th><th>Configuration</th></tr>
+<tr><td>Tasks</td><td><b>Today</b></td><td>Table</td><td>Filter: Status ≠ Done. Sort: Due ↑</td></tr>
+<tr><td>Tasks</td><td><b>Kanban</b></td><td>Board</td><td>Group by Status</td></tr>
+<tr><td>Tasks</td><td><b>Inbox to Process</b></td><td>Table</td><td>Filter: Status = Inbox</td></tr>
+<tr><td>Tasks</td><td><b>Waiting On</b></td><td>Table</td><td>Filter: Status = Waiting</td></tr>
+<tr><td>Projects</td><td><b>Active Projects</b></td><td>Board</td><td>Group by Status</td></tr>
+<tr><td>Meetings</td><td><b>Calendar</b></td><td>Calendar</td><td>Calendar by Date</td></tr>
+<tr><td>Meetings</td><td><b>By Type</b></td><td>Board</td><td>Group by Type</td></tr>
+<tr><td>Meetings</td><td><b>1:1 Log by Person</b> ⭐</td><td>List</td><td>Filter: Type = 1:1 Manager OR 1:1 Direct Report. Group by Attendees. Sort: Date ↓</td></tr>
 </table>
 
-<p><b>The hybrid wins because:</b> your day is 60–70% meetings, so the system has to be <b>meeting-centric on input</b> and <b>project-centric on output</b>. PARA gives you the buckets; GTD gives you the loop; the relations between databases are what kill the double-write problem.</p>
-
-<h2>5. Time & sanity savings (concrete)</h2>
-<table>
-<tr><th>Activity</th><th>Without the system</th><th>With it</th><th>Saved/week</th></tr>
-<tr><td>Prep for 1:1 with manager</td><td>10 min hunting through notes</td><td>30 sec — open their People page</td><td>~40 min</td></tr>
-<tr><td>Prep for direct report 1:1s</td><td>5 min × N reports</td><td>30 sec × N reports</td><td>~30 min</td></tr>
-<tr><td>Friday weekly review</td><td>45 min reconciling lists</td><td>10 min — Inbox + Active Projects</td><td>35 min</td></tr>
-<tr><td>"What did we decide about X?"</td><td>5–15 min searching Slack/docs</td><td>30 sec — search Notes by Project</td><td>~30 min</td></tr>
-<tr><td>Status update to leadership</td><td>20 min compiling</td><td>5 min — Roadmap timeline view</td><td>15 min</td></tr>
-<tr><td>Onboarding a new direct report</td><td>Re-create 1:1 doc</td><td>0 min — duplicate template</td><td>n/a</td></tr>
-</table>
-<p><b>Conservative total: 3–5 hours/week back</b>, plus the cognitive tax of "where did I put that?" goes to zero.</p>
-
-<h2>6. How to recreate this in your work Notion — step by step</h2>
-
-<p>Build the databases <b>in this exact order</b>. Order matters because later databases reference earlier ones via relations.</p>
-
-<h3>Step 1 — Create the hub page</h3>
-<ol>
-<li>In your Notion sidebar, click <b>+ New page</b>. Title it <code>Nilay's Productivity OS</code>. Add an icon (🧠).</li>
-<li>This page will be the parent for all 6 databases.</li>
-</ol>
-
-<h3>Step 2 — Create <span class="pill p-people">People</span> (no relations yet)</h3>
-<ol>
-<li>On the hub page, type <code>/database</code> → <b>Database — Full page</b>. Title: <b>People</b>.</li>
-<li>Add properties:
-  <ul>
-    <li><b>Name</b> (Title — already exists)</li>
-    <li><b>Role</b> (Text)</li>
-    <li><b>Relationship</b> (Select: Manager, Direct Report, Peer, Stakeholder, External)</li>
-    <li><b>Team</b> (Text)</li>
-    <li><b>Email</b> (Email)</li>
-    <li><b>Notes</b> (Text)</li>
-  </ul>
-</li>
-</ol>
-
-<h3>Step 3 — Create <span class="pill p-areas">Areas</span></h3>
-<ol>
-<li>Back on the hub page, <code>/database</code> → <b>Areas</b>.</li>
-<li>Properties: <b>Area</b> (Title), <b>Type</b> (Select: Responsibility, Goal, Resource), <b>Description</b> (Text).</li>
-</ol>
-
-<h3>Step 4 — Create <span class="pill p-proj">Projects</span></h3>
-<ol>
-<li><code>/database</code> → <b>Projects</b>.</li>
-<li>Properties: <b>Project</b> (Title), <b>Status</b> (Select: Backlog, Planning, In Progress, Blocked, Done, Archived), <b>Priority</b> (Select: P0, P1, P2, P3), <b>Start</b> (Date), <b>Target</b> (Date), <b>Goal</b> (Text), <b>PRJ</b> (Unique ID, prefix PRJ).</li>
-<li>Add relations:
-  <ul>
-    <li><b>Area</b> → relates to Areas DB (turn on "show on Areas")</li>
-    <li><b>Stakeholders</b> → relates to People DB (turn on "show on People")</li>
-  </ul>
-</li>
-</ol>
-
-<h3>Step 5 — Create <span class="pill p-meet">Meetings &amp; 1:1s</span></h3>
-<ol>
-<li><code>/database</code> → <b>Meetings &amp; 1:1s</b>.</li>
-<li>Properties: <b>Title</b>, <b>Date</b>, <b>Type</b> (Select: 1:1 Manager, 1:1 Direct Report, Project Meeting, Team Sync, Stakeholder, Other), <b>Summary</b> (Text).</li>
-<li>Relations:
-  <ul>
-    <li><b>Attendees</b> → People (two-way)</li>
-    <li><b>Project</b> → Projects (two-way)</li>
-  </ul>
-</li>
-</ol>
-
-<h3>Step 6 — Create <span class="pill p-task">Tasks</span> (the linchpin)</h3>
-<ol>
-<li><code>/database</code> → <b>Tasks</b>.</li>
-<li>Properties: <b>Task</b>, <b>Status</b> (Select: Inbox, Next, In Progress, Waiting, Done), <b>Priority</b> (P0–P3), <b>Due</b> (Date), <b>Do Date</b> (Date), <b>Context</b> (Multi-select: @work, @home, @deep, @quick, @waiting), <b>TSK</b> (Unique ID).</li>
-<li>Relations (this is where the magic happens):
-  <ul>
-    <li><b>Project</b> → Projects (two-way)</li>
-    <li><b>Meeting</b> → Meetings &amp; 1:1s (two-way) ← <b>this is the most important relation in the entire system</b></li>
-    <li><b>Assignee</b> → People (two-way)</li>
-  </ul>
-</li>
-</ol>
-
-<h3>Step 7 — Create <span class="pill p-note">Notes &amp; Knowledge</span></h3>
-<ol>
-<li><code>/database</code> → <b>Notes &amp; Knowledge</b>.</li>
-<li>Properties: <b>Title</b>, <b>Type</b> (Idea, Reference, Decision, Learning, Quick Note), <b>Tags</b> (Multi-select), <b>Created</b> (Created time).</li>
-<li>Relations: <b>Project</b> → Projects, <b>Meeting</b> → Meetings (both two-way).</li>
-</ol>
-
-<h3>Step 8 — Create the views you'll actually use</h3>
-<table>
-<tr><th>Database</th><th>View name</th><th>Type</th><th>Filter / config</th></tr>
-<tr><td>Tasks</td><td>Today</td><td>Table</td><td>Status ≠ Done; sort Priority ascending</td></tr>
-<tr><td>Tasks</td><td>Kanban</td><td>Board</td><td>Group by Status</td></tr>
-<tr><td>Tasks</td><td>Inbox to Process</td><td>Table</td><td>Status = Inbox</td></tr>
-<tr><td>Tasks</td><td>Waiting On</td><td>Table</td><td>Status = Waiting</td></tr>
-<tr><td>Projects</td><td>Active Projects</td><td>Board</td><td>Group by Status</td></tr>
-<tr><td>Projects</td><td>Roadmap</td><td>Timeline</td><td>Start → Target</td></tr>
-<tr><td>Meetings</td><td>Calendar</td><td>Calendar</td><td>By Date</td></tr>
-<tr><td>Meetings</td><td>By Type</td><td>Board</td><td>Group by Type</td></tr>
-</table>
-
-<h3>Step 9 — Create real Notion templates inside Meetings</h3>
-<p>This is the part the API can't do, but you can in 5 minutes:</p>
-<ol>
-<li>Open the Meetings &amp; 1:1s database.</li>
-<li>Click the ▾ next to the blue <b>New</b> button → <b>+ New template</b>.</li>
-<li>Create three: <b>1:1 with Manager</b>, <b>1:1 with Direct Report</b>, <b>Project Meeting</b>.</li>
-<li>For each template, paste the section structure from the next part of this doc.</li>
-<li>Set the Type property in each template so it auto-fills.</li>
-</ol>
-
-<h2>7. Template content (copy/paste into Notion)</h2>
-
-<h3>👤 1:1 with Manager</h3>
-<pre style="background:#f1efe8;padding:14px;border-radius:8px;font-size:13px;white-space:pre-wrap">## 🟢 Wins &amp; progress since last 1:1
--
-
-## 🚧 Blockers / where I need help
--
-
-## 🗣️ Topics to discuss
--
-
-## 🔁 Feedback
-**Give:**
--
-**Ask for:**
--
-
-## 🌱 Career &amp; growth
--
-
-## ✅ Action items
-- [ ]
-
-## 📝 Raw notes</pre>
-
-<h3>👥 1:1 with Direct Report</h3>
-<pre style="background:#f1efe8;padding:14px;border-radius:8px;font-size:13px;white-space:pre-wrap">## 👋 Personal check-in
-_How are they doing — energy, mood, life outside work?_
--
-
-## 🟢 Their wins &amp; progress
--
-
-## 🚧 Their blockers / where they need support
--
-
-## 🗣️ Their topics
--
-
-## 🎯 My topics
--
-
-## 🔁 Feedback
-**For them:**
--
-**From them (ask):**
--
-
-## 🌱 Career &amp; growth
--
-
-## ✅ Action items
-- [ ]
-
-## 📝 Raw notes</pre>
-
-<h3>📅 Project Meeting</h3>
-<pre style="background:#f1efe8;padding:14px;border-radius:8px;font-size:13px;white-space:pre-wrap">## 📋 Agenda
-1.
-2.
-3.
-
-## 💬 Discussion notes
--
-
-## ✅ Decisions made
--
-
-## ⚠️ Risks &amp; open questions
--
-
-## 🎯 Action items
-_Format: owner — what — when. Convert each to a linked Task._
-- [ ]
-
-## ⏭️ Next steps &amp; follow-ups
--</pre>
-
-<h2>8. Daily &amp; weekly rituals (the part that makes it actually stick)</h2>
-
-<div class="callout">
-<b>Morning (3 min):</b> Open Tasks → <b>Today</b> view. Pick your 3 P0/P1s for the day. That's it.
+<div class="callout tip">
+<b>⭐ Why "1:1 Log by Person" matters:</b> instead of creating one rolling page per person (which loses dates and per-meeting task links), this view groups every 1:1 row by attendee — so you scroll through Sarah's section to see the entire history of your 1:1s with her, newest first. Best of both worlds: one row per meeting, but it <i>feels</i> like one page per person.
 </div>
 
-<div class="callout">
-<b>After every meeting (1 min):</b> Open the meeting note. For each <code>- [ ]</code> action item, highlight the line → "Turn into → Page in" → Tasks. Set Project + Assignee. Done. Notion auto-links the Task back to the meeting via the relation.
-</div>
+<h2 id="flow">5. The daily flow + worked example</h2>
 
-<div class="callout">
-<b>Friday weekly review (15 min):</b>
-<ol>
-<li>Tasks → <b>Inbox to Process</b> view. For each loose task, assign Project + Status + Due.</li>
-<li>Projects → <b>Active Projects</b> board. Move cards. Update statuses.</li>
-<li>Tasks → <b>Waiting On</b> view. Nudge whoever's blocking you.</li>
-<li>Open your manager's People page. Skim open items. Seed your next 1:1 agenda.</li>
-</ol>
-</div>
+<p>Here's exactly how it played out with the dummy data already in your workspace:</p>
 
-<h2>9. Pro tips</h2>
+<div class="step"><span class="step-num">1</span><b>You sit down for a 1:1 with Alex.</b> Open Meetings DB → New → pick the <i>1:1 Direct Report</i> template. Set Title = "1:1 with Alex — Apr 6", Date = today, Attendees = Alex, Project = Checkout Latency Reduction. Type notes into the template's pre-filled headings.</div>
+
+<div class="step"><span class="step-num">2</span><b>Action item comes up:</b> "Review Alex's caching RFC by Apr 10." You go to the Tasks property at the top of this meeting → New row → Task = "Review Alex's caching RFC", Status = Next, Priority = P0, Due = Apr 10, Assignee = Alex, Project = Checkout Latency Reduction. <i>The Meeting relation auto-fills because you created it from the meeting page.</i></div>
+
+<div class="step"><span class="step-num">3</span><b>You stop typing. Watch what just happened:</b>
 <ul>
-<li><b>The Meeting → Task relation is the single most important one in the system.</b> If you only get one thing right, get this. It's what eliminates double-writing.</li>
-<li><b>Don't over-classify.</b> Areas should be 5–7 max. Projects rarely more than 10 active.</li>
-<li><b>Use Context tags (@deep, @quick) to time-block.</b> "I have 30 min before my next meeting" → filter Today by @quick.</li>
-<li><b>Your manager's People page is your secret weapon.</b> Open it 60 seconds before every 1:1. You'll look organized because you actually are.</li>
-<li><b>The Inbox status is sacred.</b> When something pops into your head mid-meeting, just dump it as a Task with Status = Inbox. Process it Friday.</li>
-</ul>
+<li>The task appears in <b>Tasks → Today</b> (because Status ≠ Done)</li>
+<li>It appears on the <b>Checkout Latency Reduction</b> project page (Tasks relation)</li>
+<li>It appears on <b>Alex Rivera's</b> People page (Tasks relation, Assignee)</li>
+<li>It appears on the <b>1:1 with Alex — Apr 6</b> meeting page (Tasks relation)</li>
+<li>You typed it once.</li>
+</ul></div>
 
-<h2>10. Where to start (your first 30 minutes)</h2>
+<div class="step"><span class="step-num">4</span><b>Friday review.</b> Open Tasks → Inbox to Process → assign Project + Priority + Due to anything you captured loosely during the week. Open Projects → Active Projects board → walk each card. Open Tasks → Waiting On → poke anyone you're blocked by. Open Meetings → 1:1 Log by Person → skim each report's recent themes before next week.</div>
+
+<h2 id="home">6. The fancy home page — design + how to recreate</h2>
+
+<p>The home page should feel like a calm command center, not a wall of databases. Here's the design and the exact blocks you need.</p>
+
+<h3>Design principles</h3>
 <ol>
-<li><b>10 min:</b> Fill People — your manager, every direct report, your skip-level, top 3–5 stakeholders.</li>
-<li><b>10 min:</b> Create Areas (5–7 max). For an Affirm EM these might be: <i>Team Leadership, Hiring &amp; Recruiting, [Your team]'s Roadmap, Cross-functional Partnerships, Personal Growth</i>.</li>
-<li><b>5 min:</b> Add 3–5 current Projects under those Areas.</li>
-<li><b>5 min:</b> Use a meeting template at your next 1:1. Convert one action item to a Task. Watch it appear on the assignee's People page.</li>
+<li><b>Cover image</b> — sets the mood the moment you open it. Pick something atmospheric (mountains, sunrise, fog over water). Avoid busy stock photos.</li>
+<li><b>Big icon</b> — single emoji or custom icon. Mine is 🧠.</li>
+<li><b>Quote at top</b> — one line, italicized, your favorite productivity quote. Anchors the page philosophically.</li>
+<li><b>Welcome callout</b> — one sentence explaining what this page is.</li>
+<li><b>Section headings with emoji</b> — ☀️ Today's Mission, 🧭 The Six Databases, 🔄 The Flow, 🌅 Daily Ritual, 🌙 Weekly Review, 🗝 Cheat Sheet.</li>
+<li><b>Dividers</b> between sections — Notion's <code>---</code> creates a thin horizontal rule that feels intentional.</li>
+<li><b>Inline checkboxes</b> for the rituals — they reset visually each day and feel actionable.</li>
+<li><b>Closing note</b> — one philosophical reminder at the bottom.</li>
 </ol>
 
-<p style="margin-top:48px;color:var(--muted);font-size:13px;text-align:center">— That's the whole system. The rest is just discipline.</p>
+<h3>What it looks like</h3>
+<div class="mockup">
+<div class="mockup-cover"></div>
+<div class="mockup-icon">🧠</div>
+<div style="font-size:30px;font-weight:800;margin:6px 0">Productivity OS</div>
+<div class="mockup-quote">"You do not rise to the level of your goals. You fall to the level of your systems." — James Clear</div>
+<div class="mockup-callout">💡 <b>Welcome to your Productivity OS.</b> A hybrid PARA + GTD system. Capture once, surface everywhere — never double-write.</div>
+<div class="mockup-h2">☀️ Today's Mission</div>
+<div class="mockup-callout" style="background:#f5f3ff">🎯 Start here every morning. Open <b>Tasks → Today</b> view. Open <b>Meetings → Calendar</b> to prep the next meeting.</div>
+<div class="mockup-h2">🧭 The Six Databases</div>
+<div style="color:#888;font-size:13px;margin:6px 0">[ People · Areas · Projects · Meetings · Tasks · Notes ]</div>
+<div class="mockup-h2">🌅 Daily Ritual</div>
+<div style="color:#444;font-size:14px">☐ Open Tasks → Today — pick top 3<br>☐ Glance at Meetings → Calendar<br>☐ Capture loose thoughts as Inbox tasks</div>
+</div>
+
+<h3>Recreate it block-by-block</h3>
+
+<div class="step"><span class="step-num">1</span><b>Add a cover.</b> Hover the top of the page → "Add cover" → "Change cover" → Unsplash tab → search for "mountain", "fog", "sunrise". Or upload your own. Reposition until it looks calm.</div>
+
+<div class="step"><span class="step-num">2</span><b>Add an icon.</b> Click the top-left icon area → pick an emoji (🧠, 🌌, 🧭, ⚡). Make it <i>one</i> consistent emoji that becomes "yours."</div>
+
+<div class="step"><span class="step-num">3</span><b>Type your title:</b> <code>Productivity OS</code>. Don't add the emoji here — the icon does that.</div>
+
+<div class="step"><span class="step-num">4</span><b>Quote block.</b> Press <code>/quote</code> → Enter. Paste your favorite productivity quote in italics. End with em-dash and the author.</div>
+
+<div class="step"><span class="step-num">5</span><b>Welcome callout.</b> Press <code>/callout</code> → Enter. Pick a 💡 or 🧠 emoji. Type one sentence describing what this page is.</div>
+
+<div class="step"><span class="step-num">6</span><b>Divider.</b> Press <code>/divider</code> → Enter. Use these between every major section.</div>
+
+<div class="step"><span class="step-num">7</span><b>Section heading.</b> Type <code>## ☀️ Today's Mission</code> (the <code>##</code> auto-converts to H2). Always lead with an emoji — it makes scanning easy.</div>
+
+<div class="step"><span class="step-num">8</span><b>Tip callout.</b> Press <code>/callout</code> → 🎯 emoji → "Start here every morning…"</div>
+
+<div class="step"><span class="step-num">9</span><b>Six databases section.</b> Heading: <code>## 🧭 The Six Databases</code>. Then drag each database from the sidebar into the page (or press <code>/linked</code> → "Linked view of database" if you want them collapsible). They'll appear as full database blocks. <i>Tip: if you want them to feel more like a menu and less like 6 huge tables, use <code>/linked</code> and pick "List" type for each.</i></div>
+
+<div class="step"><span class="step-num">10</span><b>The Flow section.</b> Heading: <code>## 🔄 The Flow</code>. Numbered list explaining the 3-step capture flow. Add a <code>/callout</code> at the bottom marked ✅ saying "The linchpin is the Tasks → Meeting relation."</div>
+
+<div class="step"><span class="step-num">11</span><b>Daily Ritual.</b> Heading: <code>## 🌅 Daily Ritual (5 minutes)</code>. Press <code>/todo</code> → write checkboxes for each step. They visually reset each morning.</div>
+
+<div class="step"><span class="step-num">12</span><b>Weekly Review.</b> Same pattern: <code>## 🌙 Weekly Review (Friday, 30 min)</code> + <code>/todo</code> checkboxes.</div>
+
+<div class="step"><span class="step-num">13</span><b>Cheat sheet table.</b> Heading: <code>## 🗝 Key Views Cheat Sheet</code>. Press <code>/table</code> → Simple table → 3 columns: Database / View / When to use. Fill in the 8 views.</div>
+
+<div class="step"><span class="step-num">14</span><b>Closing note.</b> Final divider, then a <code>/callout</code> with 💡: "Remember: the goal isn't to use every feature. It's to write each thing exactly once."</div>
+
+<div class="callout tip"><b>Polish tips:</b>
+<ul>
+<li>Use <code>/columns</code> to put Daily Ritual and Weekly Review side-by-side if your screen is wide.</li>
+<li>Hover any block → ⋮⋮ → Color → pick a soft background tint (gray, brown, default) to group sections.</li>
+<li>Press <code>Cmd/Ctrl + Shift + L</code> to toggle dark mode and make sure the cover still works.</li>
+<li>For a "fancier" look, replace the section headings with toggle headings (<code>/toggle h2</code>) so each section collapses — turns the page into a clean menu.</li>
+</ul>
+</div>
+
+<h2 id="replicate">7. Step-by-step replication from scratch</h2>
+
+<p>If you're rebuilding this in your Affirm work Notion (or anywhere fresh), here is the exact sequence. Do them in order — relations require their target databases to already exist.</p>
+
+<div class="step"><span class="step-num">1</span><b>Create the hub page.</b> New page → title: <code>Productivity OS</code>. Add cover + 🧠 icon.</div>
+
+<div class="step"><span class="step-num">2</span><b>Create People (no relations yet).</b> Inside the hub: <code>/database - inline</code>. Title = "People". Properties:
+<ul>
+<li>Name (title)</li>
+<li>Relationship (select: Manager, Direct Report, Peer, Stakeholder, External)</li>
+<li>Role (text)</li>
+<li>Team (text)</li>
+<li>Email (email)</li>
+</ul></div>
+
+<div class="step"><span class="step-num">3</span><b>Create Areas.</b> Properties: Area (title), Type (select: Responsibility, Goal, Resource), Description (text).</div>
+
+<div class="step"><span class="step-num">4</span><b>Create Projects.</b> Properties: Project (title), Status (select: Backlog, Planning, In Progress, Blocked, Done, Archived), Priority (select: P0–P3), Goal (text), Start (date), Target (date), PRJ (auto-increment ID). <b>Now add relations:</b> → Areas, → People (rename to "Stakeholders").</div>
+
+<div class="step"><span class="step-num">5</span><b>Create Meetings & 1:1s.</b> Properties: Title (title), Type (select: 1:1 Manager, 1:1 Direct Report, Project Meeting, Team Sync, Stakeholder, Other), Date (date), Summary (text). <b>Relations:</b> → People (rename to "Attendees"), → Projects.</div>
+
+<div class="step"><span class="step-num">6</span><b>Create Tasks.</b> Properties: Task (title), Status (select: Inbox, Next, In Progress, Waiting, Done), Priority (P0–P3), Context (multi-select: @work, @home, @deep, @quick, @waiting), Do Date (date), Due (date), TSK (auto ID). <b>Relations (the linchpin step):</b> → Projects, → Meetings, → People (rename to "Assignee").</div>
+
+<div class="step"><span class="step-num">7</span><b>Create Notes & Knowledge.</b> Properties: Title (title), Type (select), Tags (multi-select), Created (date). <b>Relations:</b> → Projects, → Meetings.</div>
+
+<div class="step"><span class="step-num">8</span><b>Create the views</b> (see table in section 4). For each one: open the database → click "+ New view" → pick the type → set the filter/sort/grouping shown.</div>
+
+<div class="step"><span class="step-num">9</span><b>Create the 3 meeting templates.</b> Open Meetings → "+ New" dropdown → "+ New template". Make three: 1:1 with Manager, 1:1 with Direct Report, Project Meeting. Use the headings shown in section 9 below. Set the Type property in each template so it auto-fills.</div>
+
+<div class="step"><span class="step-num">10</span><b>Build the home page</b> using section 6 above.</div>
+
+<div class="step"><span class="step-num">11</span><b>Seed it with reality</b> — add your manager, your reports, your top 2–3 active projects, and the next 1:1s on your calendar. Don't try to backfill everything. Just start using it for new stuff.</div>
+
+<h2 id="rituals">8. Daily and weekly rituals</h2>
+
+<div class="grid2">
+<div class="card">
+<h4>🌅 Daily (5 min, morning)</h4>
+<ul>
+<li>Open <b>Tasks → Today</b>; pick top 3</li>
+<li>Glance at <b>Meetings → Calendar</b>; prep next meeting</li>
+<li>Capture loose thoughts as <code>Inbox</code> tasks</li>
+</ul>
+</div>
+<div class="card">
+<h4>🌙 Weekly (30 min, Friday)</h4>
+<ul>
+<li><b>Inbox to Process</b> → tag everything</li>
+<li>Walk <b>Active Projects</b> board</li>
+<li><b>Waiting On</b> → poke blockers</li>
+<li><b>1:1 Log by Person</b> → scan each report</li>
+</ul>
+</div>
+</div>
+
+<h2 id="templates">9. Meeting templates</h2>
+
+<h3>📋 1:1 with Manager</h3>
+<pre style="background:#f1efe6;padding:14px;border-radius:8px;font-size:13px;line-height:1.5">## Wins since last 1:1
+-
+
+## Blockers / Help needed
+-
+
+## Topics to discuss
+-
+
+## Feedback (give &amp; receive)
+-
+
+## Career / growth
+-
+
+## Action items
+- [ ] </pre>
+
+<h3>🧑‍💻 1:1 with Direct Report</h3>
+<pre style="background:#f1efe6;padding:14px;border-radius:8px;font-size:13px;line-height:1.5">## How are you doing?
+-
+
+## What they're working on
+-
+
+## Blockers / support needed
+-
+
+## Feedback for them
+-
+
+## Feedback from them
+-
+
+## Growth / career
+-
+
+## Action items
+- [ ] </pre>
+
+<h3>📋 Project Meeting</h3>
+<pre style="background:#f1efe6;padding:14px;border-radius:8px;font-size:13px;line-height:1.5">## Agenda
+-
+
+## Attendees
+-
+
+## Discussion notes
+-
+
+## Decisions
+-
+
+## Action items
+- [ ]
+
+## Next steps
+- </pre>
+
+<div class="callout" style="margin-top:40px">
+<b>That's the whole system.</b> Six databases, eight views, three templates, one home page. The relations do all the work. Your job is just to write each action item exactly once and let the system surface it everywhere it matters.
+</div>
 
 </body>
 </html>
