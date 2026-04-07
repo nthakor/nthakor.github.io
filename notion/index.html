@@ -1,1 +1,723 @@
- 
+ <!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Productivity OS — Complete Beginner's Guide</title>
+<style>
+  :root{
+    --bg:#f7f5ef;--ink:#1e1e1e;--muted:#6b6b6b;--line:#e6e2d6;
+    --accent:#2f6f4e;--accent2:#7c5cff;--card:#ffffff;--code-bg:#f1efe6;
+  }
+  *{box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,sans-serif;background:var(--bg);color:var(--ink);max-width:940px;margin:0 auto;padding:40px 28px;line-height:1.65}
+  .hero{background:linear-gradient(135deg,#2f6f4e 0%,#7c5cff 100%);color:#fff;padding:40px 36px;border-radius:16px;margin-bottom:32px;box-shadow:0 10px 32px rgba(47,111,78,.16)}
+  .hero h1{font-size:34px;margin:0 0 6px;font-weight:800;letter-spacing:-.4px}
+  .hero p{margin:0;opacity:.93;font-size:16px}
+  h2{font-size:26px;margin-top:56px;border-bottom:2px solid var(--accent);padding-bottom:10px;letter-spacing:-.2px}
+  h3{font-size:19px;margin-top:30px;color:var(--accent)}
+  h4{font-size:16px;margin-top:22px;margin-bottom:6px}
+  .sub{color:var(--muted);font-size:15px}
+  table{border-collapse:collapse;width:100%;margin:14px 0;background:var(--card);border-radius:10px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.03)}
+  th,td{border-bottom:1px solid var(--line);padding:11px 14px;text-align:left;vertical-align:top;font-size:14px}
+  th{background:#f1efe6;font-weight:600}
+  tr:last-child td{border-bottom:none}
+  code{background:var(--code-bg);padding:2px 7px;border-radius:5px;font-size:13px;font-family:"SF Mono",Menlo,monospace}
+  .key{background:#1e1e1e;color:#fff;padding:2px 8px;border-radius:4px;font-size:12px;font-family:monospace;display:inline-block}
+  .callout{background:#eef6f1;border-left:4px solid var(--accent);padding:14px 18px;border-radius:8px;margin:14px 0}
+  .callout.tip{background:#f5f3ff;border-left-color:var(--accent2)}
+  .callout.warn{background:#fff7ed;border-left-color:#c2410c}
+  .callout.info{background:#eff6ff;border-left-color:#1d4ed8}
+  .step{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 20px;margin:12px 0;box-shadow:0 1px 3px rgba(0,0,0,.03)}
+  .step-num{display:inline-block;background:var(--accent);color:#fff;width:28px;height:28px;border-radius:50%;text-align:center;line-height:28px;font-weight:700;font-size:13px;margin-right:10px;vertical-align:middle}
+  .step h4{margin-top:0;display:inline-block;vertical-align:middle}
+  .step-body{margin-top:10px;margin-left:38px}
+  pre{background:var(--code-bg);padding:16px;border-radius:8px;font-size:13px;line-height:1.55;white-space:pre-wrap;overflow-x:auto;border-left:3px solid var(--accent)}
+  pre.copy{background:#fffbeb;border-left-color:#f59e0b;position:relative}
+  pre.copy::before{content:"📋 COPY-PASTE";position:absolute;top:8px;right:12px;font-size:10px;font-weight:700;color:#92400e;letter-spacing:.5px}
+  .toc{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px 24px;margin:0 0 32px}
+  .toc a{color:var(--accent);text-decoration:none;display:block;margin:5px 0;font-size:14px}
+  .toc a:hover{text-decoration:underline}
+  .mockup{background:#fafaf7;border:1px solid var(--line);border-radius:12px;padding:22px;margin:16px 0;box-shadow:inset 0 0 0 1px #fff,0 4px 14px rgba(0,0,0,.04)}
+  .mockup-cover{height:70px;background:linear-gradient(135deg,#fbcfe8 0%,#a78bfa 50%,#60a5fa 100%);border-radius:8px;margin:-10px -10px 14px}
+  .mockup-icon{font-size:38px;line-height:1;margin-top:-26px;display:inline-block;background:#fff;padding:6px 10px;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,.1)}
+  .prop-table{font-size:13px}
+  .prop-table td:first-child{font-weight:600;width:30%}
+  .prop-table td:nth-child(2){width:20%;color:#666}
+  ol li,ul li{margin:6px 0}
+</style>
+</head>
+<body>
+
+<div class="hero">
+<h1>🧠 Productivity OS</h1>
+<p>A complete, step-by-step build guide — assumes you've never touched Notion before.</p>
+</div>
+
+<div class="toc">
+<b>Contents</b>
+<a href="#notion-basics">0. Notion basics you need to know first</a>
+<a href="#what">1. What you're building</a>
+<a href="#dbs">2. The 4 core databases (properties explained)</a>
+<a href="#build-order">3. Build order (why it matters)</a>
+<a href="#step-hub">4. Step 1 — Create the hub page</a>
+<a href="#step-people">5. Step 2 — Build the People database</a>
+<a href="#step-projects">6. Step 3 — Build the Projects database</a>
+<a href="#step-meetings">7. Step 4 — Build the Meetings database</a>
+<a href="#step-tasks">8. Step 5 — Build the Tasks database (the linchpin)</a>
+<a href="#step-views">9. Step 6 — Create the views</a>
+<a href="#step-templates">10. Step 7 — Create the input templates (copy-paste)</a>
+<a href="#step-meeting-templates">11. Step 8 — Create the 3 meeting templates (copy-paste)</a>
+<a href="#step-home">12. Step 9 — Build the minimal home page</a>
+<a href="#step-setup">13. Step 10 — Build the Setup &amp; Guides subpage</a>
+<a href="#daily-use">14. Daily use — the one habit to build</a>
+<a href="#optional">15. Optional extras (add later)</a>
+</div>
+
+<h2 id="notion-basics">0. Notion basics you need to know first</h2>
+<p>If you've never used Notion seriously, read this section. Every step below assumes these moves.</p>
+
+<h3>The slash menu <span class="key">/</span></h3>
+<p>Type a forward slash anywhere on a blank line and a menu pops up. This is how you add <i>everything</i> in Notion — databases, headings, callouts, quotes, dividers, toggles. You'll see commands like:</p>
+<ul>
+<li><code>/database - inline</code> — create a database embedded on the current page</li>
+<li><code>/callout</code> — a colored box with an emoji</li>
+<li><code>/heading 2</code> or just type <code>##</code> then a space — a large section heading</li>
+<li><code>/divider</code> — a thin horizontal line</li>
+<li><code>/todo</code> — a checkbox list item</li>
+<li><code>/quote</code> — an italicized quote block</li>
+<li><code>/toggle heading 2</code> — a collapsible section</li>
+</ul>
+
+<h3>How to add a database property</h3>
+<p>Open any database → click the <b>+</b> at the end of the column row → a panel opens asking for property name and type. Pick the type (Text / Select / Date / Relation / etc.), name it, hit <code>Enter</code>.</p>
+
+<h3>Property types you'll use</h3>
+<table class="prop-table">
+<tr><td>Title</td><td>auto-created</td><td>The main name of the row. Every database has exactly one.</td></tr>
+<tr><td>Text</td><td>free-form</td><td>Plain text, any length.</td></tr>
+<tr><td>Select</td><td>dropdown</td><td>Pick one option from a fixed list. You define the options.</td></tr>
+<tr><td>Multi-select</td><td>tags</td><td>Pick multiple options from a list.</td></tr>
+<tr><td>Date</td><td>calendar</td><td>A single date or a date range.</td></tr>
+<tr><td>Email</td><td>clickable</td><td>Validated email address.</td></tr>
+<tr><td>Relation</td><td>link</td><td>Link to another database. <b>This is the magic.</b></td></tr>
+</table>
+
+<h3>What a "relation" actually does</h3>
+<p>A relation is a two-way link between two databases. If you add a relation from Tasks → Projects, then: (1) each Task row gets a "Project" field where you pick a project, and (2) each Project row automatically shows a "Tasks" list of everything linked to it. You fill one side, both sides update.</p>
+
+<h3>How to create a view</h3>
+<p>At the top of any database, next to the view name, click the <b>+</b> to add a new view. Pick a type (Table / Board / Calendar / List / Timeline / Gallery). Then click the view name → <b>Filter</b> or <b>Sort</b> to configure it.</p>
+
+<h3>Duplicating a row (how "templates" work in this system)</h3>
+<p>Right-click any database row → <b>Duplicate</b>. A copy appears. Rename it. That's how you'll use the 📌 template rows below — duplicate, rename, fill in.</p>
+
+<h2 id="what">1. What you're building</h2>
+<p>Four linked databases plus a minimal home page and a separate Setup &amp; Guides subpage.</p>
+
+<table>
+<tr><th>Database</th><th>What it holds</th></tr>
+<tr><td>👥 <b>People</b></td><td>Manager, direct reports, peers, stakeholders</td></tr>
+<tr><td>📁 <b>Projects</b></td><td>Time-bounded work with a goal</td></tr>
+<tr><td>📅 <b>Meetings</b></td><td>Every 1:1 and project meeting</td></tr>
+<tr><td>✅ <b>Tasks</b></td><td>Every action item</td></tr>
+</table>
+
+<div class="callout"><b>The one rule:</b> when an action item comes up in a meeting, create it as a Task from inside the meeting page. That single click links it to the meeting, the project, and the person — automatically.</div>
+
+<h2 id="dbs">2. The 4 core databases — full property list</h2>
+
+<h3>👥 People</h3>
+<table class="prop-table">
+<tr><td>Name</td><td>Title</td><td>Person's full name</td></tr>
+<tr><td>Relationship</td><td>Select</td><td>Options: Manager, Direct Report, Peer, Stakeholder, External</td></tr>
+<tr><td>Role</td><td>Text</td><td>Job title, e.g. "Senior Engineer"</td></tr>
+<tr><td>Team</td><td>Text</td><td>Team name</td></tr>
+<tr><td>Email</td><td>Email</td><td>Work email</td></tr>
+</table>
+
+<h3>📁 Projects</h3>
+<table class="prop-table">
+<tr><td>Project</td><td>Title</td><td>Project name</td></tr>
+<tr><td>Status</td><td>Select</td><td>Backlog, Planning, In Progress, Blocked, Done, Archived</td></tr>
+<tr><td>Priority</td><td>Select</td><td>P0, P1, P2, P3</td></tr>
+<tr><td>Goal</td><td>Text</td><td>One sentence outcome</td></tr>
+<tr><td>Start</td><td>Date</td><td>Kick-off date</td></tr>
+<tr><td>Target</td><td>Date</td><td>Target completion date</td></tr>
+<tr><td>Stakeholders</td><td>Relation → People</td><td>Pick multiple people</td></tr>
+</table>
+
+<h3>📅 Meetings &amp; 1:1s</h3>
+<table class="prop-table">
+<tr><td>Title</td><td>Title</td><td>e.g. "1:1 with Sarah — Apr 6"</td></tr>
+<tr><td>Type</td><td>Select</td><td>1:1 Manager, 1:1 Direct Report, Project Meeting, Team Sync, Stakeholder, Other</td></tr>
+<tr><td>Date</td><td>Date</td><td>When it happens</td></tr>
+<tr><td>Summary</td><td>Text</td><td>One-sentence recap</td></tr>
+<tr><td>Attendees</td><td>Relation → People</td><td>Pick everyone in the meeting</td></tr>
+<tr><td>Project</td><td>Relation → Projects</td><td>Link if it's a project meeting</td></tr>
+</table>
+
+<h3>✅ Tasks (the linchpin)</h3>
+<table class="prop-table">
+<tr><td>Task</td><td>Title</td><td>Short action description</td></tr>
+<tr><td>Status</td><td>Select</td><td>Inbox, Next, In Progress, Waiting, Done</td></tr>
+<tr><td>Priority</td><td>Select</td><td>P0, P1, P2, P3</td></tr>
+<tr><td>Do Date</td><td>Date</td><td>When you plan to do it</td></tr>
+<tr><td>Due</td><td>Date</td><td>Hard deadline</td></tr>
+<tr><td>Assignee</td><td>Relation → People</td><td>Who owns it</td></tr>
+<tr><td>Project</td><td>Relation → Projects</td><td>Which project it belongs to</td></tr>
+<tr><td>Meeting</td><td>Relation → Meetings</td><td>Which meeting it came from</td></tr>
+</table>
+
+<h2 id="build-order">3. Build order — do it in this exact sequence</h2>
+<p>Relations require their target database to already exist. If you try to add a "Project" relation to Tasks before you've created the Projects database, Notion will have nothing to link to. Follow this order:</p>
+<ol>
+<li>Hub page</li>
+<li>People database (no relations)</li>
+<li>Projects database (relation → People)</li>
+<li>Meetings database (relation → People, Projects)</li>
+<li>Tasks database (relation → People, Projects, Meetings) ← <b>the linchpin</b></li>
+<li>Views</li>
+<li>Input templates (the 📌 rows)</li>
+<li>Meeting templates</li>
+<li>Home page layout</li>
+<li>Setup &amp; Guides subpage</li>
+</ol>
+
+<h2 id="step-hub">Step 1 — Create the hub page</h2>
+
+<div class="step"><span class="step-num">1</span><h4>Create a new page</h4>
+<div class="step-body">
+In Notion's left sidebar, click <b>+ Add a page</b>. A blank page opens.
+</div></div>
+
+<div class="step"><span class="step-num">2</span><h4>Give it a title</h4>
+<div class="step-body">
+Type: <code>Productivity OS</code>. Press <span class="key">Enter</span>.
+</div></div>
+
+<div class="step"><span class="step-num">3</span><h4>Add an icon</h4>
+<div class="step-body">
+Hover just above the title → click <b>Add icon</b> → pick 🧠 (or any single emoji you like).
+</div></div>
+
+<div class="step"><span class="step-num">4</span><h4>Add a cover</h4>
+<div class="step-body">
+Hover above the title → click <b>Add cover</b> → click the cover → <b>Change cover</b> → <b>Unsplash</b> tab → search "mountain", "fog", or "sunrise" → pick one → <b>Reposition</b> if needed.
+</div></div>
+
+<h2 id="step-people">Step 2 — Build the People database</h2>
+
+<div class="step"><span class="step-num">1</span><h4>Insert a database</h4>
+<div class="step-body">
+On a blank line in the hub page, type <code>/database</code> and pick <b>Database - Inline</b>. A small table appears.
+</div></div>
+
+<div class="step"><span class="step-num">2</span><h4>Name it</h4>
+<div class="step-body">
+At the top of the new database, click the "Untitled" header → type <code>People</code> → press <span class="key">Enter</span>.
+</div></div>
+
+<div class="step"><span class="step-num">3</span><h4>Rename the default "Name" title column</h4>
+<div class="step-body">
+It's probably already called "Name". If not, click the column header → <b>Rename</b> → type <code>Name</code>.
+</div></div>
+
+<div class="step"><span class="step-num">4</span><h4>Add the Relationship select property</h4>
+<div class="step-body">
+Click the <b>+</b> at the end of the column row → type <code>Relationship</code> → pick <b>Select</b> type → click <b>Done</b>. Now click any cell in the Relationship column → type each option one at a time and press Enter: <code>Manager</code>, <code>Direct Report</code>, <code>Peer</code>, <code>Stakeholder</code>, <code>External</code>.
+</div></div>
+
+<div class="step"><span class="step-num">5</span><h4>Add Role, Team, Email</h4>
+<div class="step-body">
+Click <b>+</b> again → <code>Role</code> → <b>Text</b>. Repeat for <code>Team</code> → <b>Text</b>, and <code>Email</code> → <b>Email</b>.
+</div></div>
+
+<h2 id="step-projects">Step 3 — Build the Projects database</h2>
+
+<div class="step"><span class="step-num">1</span><h4>Insert and name</h4>
+<div class="step-body">
+Below the People database, add a blank line → <code>/database</code> → <b>Database - Inline</b> → name it <code>Projects</code>. Rename the title column to <code>Project</code>.
+</div></div>
+
+<div class="step"><span class="step-num">2</span><h4>Add Status select</h4>
+<div class="step-body">
+<b>+</b> column → <code>Status</code> → <b>Select</b>. Options: <code>Backlog</code>, <code>Planning</code>, <code>In Progress</code>, <code>Blocked</code>, <code>Done</code>, <code>Archived</code>.
+</div></div>
+
+<div class="step"><span class="step-num">3</span><h4>Add Priority select</h4>
+<div class="step-body">
+<b>+</b> column → <code>Priority</code> → <b>Select</b>. Options: <code>P0</code>, <code>P1</code>, <code>P2</code>, <code>P3</code>.
+</div></div>
+
+<div class="step"><span class="step-num">4</span><h4>Add Goal, Start, Target</h4>
+<div class="step-body">
+<code>Goal</code> → <b>Text</b>. <code>Start</code> → <b>Date</b>. <code>Target</code> → <b>Date</b>.
+</div></div>
+
+<div class="step"><span class="step-num">5</span><h4>Add the Stakeholders relation (first relation!)</h4>
+<div class="step-body">
+<b>+</b> column → type <code>Stakeholders</code> → pick <b>Relation</b> type → a panel slides in asking which database to link to → pick <b>People</b> → make sure <b>Show on People</b> is toggled ON (this creates the reverse link so each person shows their projects). Click <b>Add relation</b>.
+</div></div>
+
+<h2 id="step-meetings">Step 4 — Build the Meetings database</h2>
+
+<div class="step"><span class="step-num">1</span><h4>Insert and name</h4>
+<div class="step-body">
+<code>/database</code> → Inline → name it <code>Meetings &amp; 1:1s</code>. Rename title column to <code>Title</code>.
+</div></div>
+
+<div class="step"><span class="step-num">2</span><h4>Add Type select</h4>
+<div class="step-body">
+<code>Type</code> → <b>Select</b>. Options: <code>1:1 Manager</code>, <code>1:1 Direct Report</code>, <code>Project Meeting</code>, <code>Team Sync</code>, <code>Stakeholder</code>, <code>Other</code>.
+</div></div>
+
+<div class="step"><span class="step-num">3</span><h4>Add Date and Summary</h4>
+<div class="step-body">
+<code>Date</code> → <b>Date</b>. <code>Summary</code> → <b>Text</b>.
+</div></div>
+
+<div class="step"><span class="step-num">4</span><h4>Add Attendees relation → People</h4>
+<div class="step-body">
+<code>Attendees</code> → <b>Relation</b> → target: <b>People</b> → <b>Show on People</b>: ON → Add relation.
+</div></div>
+
+<div class="step"><span class="step-num">5</span><h4>Add Project relation → Projects</h4>
+<div class="step-body">
+<code>Project</code> → <b>Relation</b> → target: <b>Projects</b> → <b>Show on Projects</b>: ON → Add relation.
+</div></div>
+
+<h2 id="step-tasks">Step 5 — Build the Tasks database (the linchpin)</h2>
+
+<div class="callout warn"><b>This is the most important step.</b> Tasks has three relations, one to each other database. Together they're what makes the whole system work.</div>
+
+<div class="step"><span class="step-num">1</span><h4>Insert and name</h4>
+<div class="step-body">
+<code>/database</code> → Inline → name it <code>Tasks</code>. Rename title column to <code>Task</code>.
+</div></div>
+
+<div class="step"><span class="step-num">2</span><h4>Add Status select</h4>
+<div class="step-body">
+<code>Status</code> → <b>Select</b>. Options: <code>Inbox</code>, <code>Next</code>, <code>In Progress</code>, <code>Waiting</code>, <code>Done</code>.
+</div></div>
+
+<div class="step"><span class="step-num">3</span><h4>Add Priority, Do Date, Due</h4>
+<div class="step-body">
+<code>Priority</code> → <b>Select</b> → P0/P1/P2/P3. <code>Do Date</code> → <b>Date</b>. <code>Due</code> → <b>Date</b>.
+</div></div>
+
+<div class="step"><span class="step-num">4</span><h4>Add Assignee → People</h4>
+<div class="step-body">
+<code>Assignee</code> → <b>Relation</b> → target <b>People</b> → <b>Show on People</b>: ON.
+</div></div>
+
+<div class="step"><span class="step-num">5</span><h4>Add Project → Projects</h4>
+<div class="step-body">
+<code>Project</code> → <b>Relation</b> → target <b>Projects</b> → <b>Show on Projects</b>: ON.
+</div></div>
+
+<div class="step"><span class="step-num">6</span><h4>Add Meeting → Meetings (the linchpin)</h4>
+<div class="step-body">
+<code>Meeting</code> → <b>Relation</b> → target <b>Meetings &amp; 1:1s</b> → <b>Show on Meetings</b>: ON. This is the one that makes meeting-note → task flow work.
+</div></div>
+
+<h2 id="step-views">Step 6 — Create the views</h2>
+<p>In each database, click the <b>+</b> next to the view name to add a new view. Here's every view to create:</p>
+
+<h3>On the Tasks database</h3>
+<div class="step"><span class="step-num">1</span><h4>Today (table)</h4>
+<div class="step-body">
++ view → pick <b>Table</b> → name <code>Today</code> → click the view name → <b>Filter</b> → Status → <b>is not</b> → <code>Done</code>. Then <b>Sort</b> → Due → Ascending.
+</div></div>
+
+<div class="step"><span class="step-num">2</span><h4>Kanban (board)</h4>
+<div class="step-body">
++ view → <b>Board</b> → name <code>Kanban</code> → "Group by" → <b>Status</b>.
+</div></div>
+
+<div class="step"><span class="step-num">3</span><h4>Inbox to Process (table)</h4>
+<div class="step-body">
++ view → <b>Table</b> → name <code>Inbox to Process</code> → Filter → Status → is → <code>Inbox</code>.
+</div></div>
+
+<div class="step"><span class="step-num">4</span><h4>Waiting On (table)</h4>
+<div class="step-body">
++ view → <b>Table</b> → name <code>Waiting On</code> → Filter → Status → is → <code>Waiting</code>.
+</div></div>
+
+<h3>On the Projects database</h3>
+<div class="step"><span class="step-num">5</span><h4>Active Projects (board)</h4>
+<div class="step-body">
++ view → <b>Board</b> → name <code>Active Projects</code> → Group by → <b>Status</b>.
+</div></div>
+
+<h3>On the Meetings database</h3>
+<div class="step"><span class="step-num">6</span><h4>Calendar</h4>
+<div class="step-body">
++ view → <b>Calendar</b> → name <code>Calendar</code> → Calendar by → <b>Date</b>.
+</div></div>
+
+<div class="step"><span class="step-num">7</span><h4>By Type (board)</h4>
+<div class="step-body">
++ view → <b>Board</b> → name <code>By Type</code> → Group by → <b>Type</b>.
+</div></div>
+
+<div class="step"><span class="step-num">8</span><h4>1:1 Log by Person (list)</h4>
+<div class="step-body">
++ view → <b>List</b> → name <code>1:1 Log by Person</code>. Filter: Type → is → <code>1:1 Manager</code>, then click <b>+ Add filter</b> → OR → Type → is → <code>1:1 Direct Report</code>. Then click the view name → <b>Group</b> → <b>Attendees</b>. Finally <b>Sort</b> → Date → Descending. This gives you a rolling log of every 1:1 grouped by person — the one view to use before any 1:1.
+</div></div>
+
+<h2 id="step-templates">Step 7 — Create the input templates (copy-paste)</h2>
+<p>For each database, create one row with the name starting with <code>📌 [TEMPLATE]</code>. In the body of that row, paste the content below. Users duplicate this row whenever they add a new item.</p>
+
+<h3>👥 People → New Person template</h3>
+<p>Create a row in People. Name it: <code>📌 [TEMPLATE] New Person — duplicate me</code>. Open the row (click the arrow that appears when you hover, or click the row name). In the page body, paste:</p>
+<pre class="copy">💡 How to use this template (30 seconds):
+1. Right-click this row → Duplicate
+2. Rename the new row to the real person's name
+3. Click the property fields at the top and fill them in
+4. Delete this instruction box
+
+Fields explained:
+
+- Name — their full name
+- Relationship — pick one: Manager / Direct Report / Peer / Stakeholder / External
+- Role — their job title
+- Team — the team they belong to
+- Email — their work email
+
+Optional notes to add below:
+
+- How you know them / first impression
+- Their current focus or project
+- Things to remember (preferences, communication style, etc.)
+
+Note: you don't need to fill any of this in to use the system. Name + Relationship is enough to start.</pre>
+
+<h3>📁 Projects → New Project template</h3>
+<p>Create a row in Projects named <code>📌 [TEMPLATE] New Project — duplicate me</code>. Set Status = <code>Planning</code>, Priority = <code>P2</code>. In the page body, paste:</p>
+<pre class="copy">💡 How to use this template (1 minute):
+1. Right-click this row → Duplicate
+2. Rename it to your project
+3. Fill in Goal, Status, Priority, Start, Target at the top
+4. Link Stakeholders (pick from the People database)
+5. Delete this instruction box
+
+## 🎯 Goal
+
+_What does "done" look like, in one sentence?_
+
+## 📋 Scope
+
+In scope:
+-
+
+Out of scope:
+-
+
+## 🚧 Risks &amp; Blockers
+
+-
+
+## 📝 Notes &amp; Decisions
+
+-
+
+Tasks and Meetings will auto-appear here via the relations — no manual linking needed.</pre>
+
+<h3>✅ Tasks → New Task template</h3>
+<p>Create a row in Tasks named <code>📌 [TEMPLATE] New Task — duplicate me (or skip this and just + New)</code>. Set Status = <code>Inbox</code>, Priority = <code>P2</code>. In the body, paste:</p>
+<pre class="copy">💡 Fastest way to create a task: skip this template.
+Click + New → type the task → set Status, Due, Assignee. 5 seconds.
+
+Use this template only for richer task pages with context and subtasks.
+
+Quick-fill cheat sheet:
+
+- Status — Inbox (not yet processed) / Next (ready to do) / In Progress / Waiting (blocked) / Done
+- Priority — P0 urgent / P1 important / P2 normal / P3 nice-to-have
+- Due — hard deadline
+- Do Date — when you plan to actually do it
+- Assignee — usually yourself; can be a direct report
+- Project — link to the project it belongs to (optional but helpful)
+- Meeting — fills automatically if you create the task from inside a meeting page
+
+## Context
+
+_Why does this matter? What's the expected outcome?_
+
+## Subtasks
+
+- [ ]
+- [ ]
+
+## Links / References
+
+-</pre>
+
+<h2 id="step-meeting-templates">Step 8 — Create the 3 meeting templates (copy-paste)</h2>
+<p>Create <b>three</b> rows in the Meetings database. Each is a meeting template that users duplicate for each real meeting.</p>
+
+<h3>📌 1:1 with Manager</h3>
+<p>Create a row named <code>📌 [TEMPLATE] 1:1 with Manager</code>. Set Type = <code>1:1 Manager</code>. Open the row. Paste in the body:</p>
+<pre class="copy">💡 How to create a task from this meeting: scroll to the top of
+this page → find the Tasks property → click + New. The task will
+auto-link to this meeting, so you never type it twice.
+
+## Wins since last 1:1
+
+-
+
+## Blockers / Help needed
+
+-
+
+## Topics to discuss
+
+-
+
+## Feedback (give &amp; receive)
+
+-
+
+## Career / growth
+
+-
+
+## Action items
+
+- [ ]</pre>
+
+<h3>📌 1:1 with Direct Report</h3>
+<p>Row name: <code>📌 [TEMPLATE] 1:1 with Direct Report</code>. Type = <code>1:1 Direct Report</code>. Body:</p>
+<pre class="copy">💡 How to create a task from this meeting: scroll to the top of
+this page → find the Tasks property → click + New. The task will
+auto-link to this meeting, so you never type it twice.
+
+## How are you doing?
+
+-
+
+## What they're working on
+
+-
+
+## Blockers / support needed
+
+-
+
+## Feedback for them
+
+-
+
+## Feedback from them
+
+-
+
+## Growth / career
+
+-
+
+## Action items
+
+- [ ]</pre>
+
+<h3>📌 Project Meeting</h3>
+<p>Row name: <code>📌 [TEMPLATE] Project Meeting</code>. Type = <code>Project Meeting</code>. Body:</p>
+<pre class="copy">💡 How to create a task from this meeting: scroll to the top of
+this page → find the Tasks property → click + New. The task will
+auto-link to this meeting, so you never type it twice.
+
+## Agenda
+
+-
+
+## Attendees
+
+-
+
+## Discussion notes
+
+-
+
+## Decisions
+
+-
+
+## Action items
+
+- [ ]
+
+## Next steps
+
+-</pre>
+
+<h2 id="step-home">Step 9 — Build the minimal home page</h2>
+
+<p>The home page should only show three things: Today's Tasks, Projects, Today's Meetings. Everything else lives on a subpage. Here's the layout:</p>
+
+<div class="mockup">
+<div class="mockup-cover"></div>
+<div class="mockup-icon">🧠</div>
+<div style="font-size:26px;font-weight:800;margin:6px 0">Productivity OS</div>
+<div style="font-size:18px;font-weight:700;margin:22px 0 8px">☀️ Today's Tasks</div>
+<div style="color:#888;font-size:13px">[Tasks database — click the <b>Kanban</b> tab]</div>
+<div style="font-size:18px;font-weight:700;margin:22px 0 8px">📁 Projects</div>
+<div style="color:#888;font-size:13px">[Projects database — click the <b>Active Projects</b> tab]</div>
+<div style="font-size:18px;font-weight:700;margin:22px 0 8px">📅 Today's Meetings</div>
+<div style="color:#888;font-size:13px">[Meetings database — click the <b>Calendar</b> tab]</div>
+<div style="font-size:13px;margin-top:18px;color:#666">→ 📖 Setup &amp; Guides (subpage)</div>
+</div>
+
+<h3>Build it step by step</h3>
+
+<div class="step"><span class="step-num">1</span><h4>Clear the hub page body</h4>
+<div class="step-body">
+Delete any content below the title on the hub page, keeping only the 4 databases you already built (People, Projects, Meetings, Tasks). The databases will be rearranged below.
+</div></div>
+
+<div class="step"><span class="step-num">2</span><h4>Add heading: ☀️ Today's Tasks</h4>
+<div class="step-body">
+Type <code>## ☀️ Today's Tasks</code> and press <span class="key">Enter</span>. Then drag the Tasks database block directly below this heading so it's positioned right after.
+</div></div>
+
+<div class="step"><span class="step-num">3</span><h4>Divider</h4>
+<div class="step-body">
+Type <code>/divider</code> → Enter.
+</div></div>
+
+<div class="step"><span class="step-num">4</span><h4>Add heading: 📁 Projects</h4>
+<div class="step-body">
+Type <code>## 📁 Projects</code> → Enter. Drag the Projects database below.
+</div></div>
+
+<div class="step"><span class="step-num">5</span><h4>Divider + Meetings heading</h4>
+<div class="step-body">
+<code>/divider</code>. Then <code>## 📅 Today's Meetings</code>. Drag the Meetings database below.
+</div></div>
+
+<div class="step"><span class="step-num">6</span><h4>Set the default tab on each database</h4>
+<div class="step-body">
+Click into Tasks on the home page → click the <b>Kanban</b> tab once. Notion remembers your selection. Click into Projects → click <b>Active Projects</b>. Click into Meetings → click <b>Calendar</b>. From now on the home page shows those views by default.
+</div></div>
+
+<h2 id="step-setup">Step 10 — Build the Setup &amp; Guides subpage</h2>
+
+<div class="step"><span class="step-num">1</span><h4>Create the subpage</h4>
+<div class="step-body">
+At the bottom of the hub page, type <code>/page</code> → pick <b>Page</b>. Name it <code>📖 Setup &amp; Guides</code>. A new blank subpage is created and linked from the hub.
+</div></div>
+
+<div class="step"><span class="step-num">2</span><h4>Move the People database into it</h4>
+<div class="step-body">
+This keeps the home page minimal. On the hub, right-click the People database block → <b>Move to</b> → search for <code>Setup &amp; Guides</code> → click it. People now lives inside the subpage.
+</div></div>
+
+<div class="step"><span class="step-num">3</span><h4>Open Setup &amp; Guides and add the content below</h4>
+<div class="step-body">
+Paste the content below (using the block types shown) into the subpage. Use <code>##</code> for headings, <code>/callout</code> for colored boxes, <code>/divider</code> between sections, and <code>/todo</code> for checkbox lists.
+</div></div>
+
+<pre class="copy">👋 Welcome. Setup &amp; Guides — everything you need to understand, onboard, and extend your Productivity OS. The home page stays minimal; all learning material lives here.
+
+---
+
+## 🚀 Start Here — What do you want to do?
+
+[callout] ✅ Capture a task — Home → Tasks → + New. Set Due + Priority.
+
+[callout] 📅 Start a meeting — Home → Meetings → + New → duplicate a 📌 template.
+
+[callout] 👥 Add a person — People below → duplicate the 📌 template → fill in Relationship.
+
+[callout] 📁 Start a project — Home → Projects → duplicate the 📌 template → write the Goal in one sentence.
+
+---
+
+## 🎯 Your First 5 Minutes
+
+- [ ] Add your manager (People)
+- [ ] Add one direct report (People)
+- [ ] Add your top project (Projects)
+- [ ] Schedule your next 1:1 (Meetings, duplicate Manager template)
+- [ ] Capture 3 tasks on your mind (Tasks, + New)
+
+---
+
+## 🔄 The One Rule
+
+When an action item comes up in a meeting: inside the meeting page, scroll to the Tasks property at the top and click + New. Don't write `- [ ] do the thing` in the notes — you'll never scroll back to see it.
+
+That single click links the task to: the Today view, the Project page, the Person's page, and this meeting page. You typed it once. You'll see it everywhere.
+
+---
+
+## 🌅 Daily Ritual (5 min)
+
+- [ ] Open Tasks → Today — pick top 3
+- [ ] Glance at Meetings → Calendar — prep next meeting
+- [ ] Dump loose thoughts into Tasks as Inbox
+
+## 🌙 Weekly Review (30 min, Friday)
+
+- [ ] Process Tasks → Inbox to Process
+- [ ] Walk Projects → Active Projects board
+- [ ] Poke blockers in Tasks → Waiting On
+- [ ] Skim Meetings → 1:1 Log by Person before next week's 1:1s
+
+---
+
+## 🗝 Key Views Cheat Sheet
+
+| Database | View | When to use |
+| --- | --- | --- |
+| Tasks | Today | Every morning |
+| Tasks | Kanban | Visual status check |
+| Tasks | Inbox to Process | Friday review |
+| Tasks | Waiting On | Friday review |
+| Projects | Active Projects | Weekly walk-through |
+| Meetings | Calendar | Daily prep |
+| Meetings | By Type | Browse by meeting kind |
+| Meetings | 1:1 Log by Person | Pre-1:1 context |
+
+---
+
+## 🗄 Reference Databases
+
+[People database inline]</pre>
+
+<div class="callout tip"><b>Note:</b> in the lines above, wherever you see <code>[callout] …</code>, type <code>/callout</code> and paste the text that follows. Wherever you see <code>[People database inline]</code>, drag the People database from the sidebar into that spot.</div>
+
+<h2 id="daily-use">Daily use — the one habit to build</h2>
+
+<div class="step"><span class="step-num">1</span><h4>Before each meeting</h4>
+<div class="step-body">
+Open the Meetings database → click <b>+ New</b> → in the dropdown that appears, click the 📌 template row you want → Notion opens a fresh page pre-filled with the template. Set the Date and Attendees at the top.
+</div></div>
+
+<div class="step"><span class="step-num">2</span><h4>During the meeting — the only move that matters</h4>
+<div class="step-body">
+Type notes in the template sections. When an action item comes up, <b>don't just write it as a bullet</b>. Instead:
+<ol>
+<li>Scroll to the top of the meeting page</li>
+<li>Find the <b>Tasks</b> property</li>
+<li>Click <b>+ New</b> — a blank task row opens</li>
+<li>Type the task, set Assignee + Due</li>
+</ol>
+The Meeting link fills in automatically because you created the task from this page. That single click is the entire system.
+</div></div>
+
+<div class="step"><span class="step-num">3</span><h4>That's it</h4>
+<div class="step-body">
+The task now shows up in Tasks → Today, on the Project page, on the Person's People page, and here. You typed it once.
+</div></div>
+
+<h2 id="optional">Optional extras (add later if you want)</h2>
+<p><b>Areas database</b> — ongoing responsibilities like "Hiring", "Team Health", "On-call". Add a relation from Projects → Areas if you want to group projects by long-term theme. Skip on day one.</p>
+<p><b>Notes &amp; Knowledge database</b> — reference material like RFCs, decisions, onboarding docs that aren't tied to a single meeting. Add a relation from Projects → Notes. Skip on day one.</p>
+
+<div class="callout" style="margin-top:36px">
+<b>That's the whole system.</b> Four databases, eight views, four input templates, three meeting templates, one minimal home page, one subpage for guides, one habit (create tasks from inside meeting pages). Take your time — it's a 2-hour build if you're careful, 30 minutes if you're fast.
+</div>
+
+</body>
+</html>
