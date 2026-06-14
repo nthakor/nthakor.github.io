@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yellowstone + Grand Teton — Itinerary Map (Jun 18–21, 2026)</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<style>
+  * { box-sizing: border-box; margin: 0; }
+  body { font-family: -apple-system, "Segoe UI", Roboto, sans-serif; height: 100vh; display: flex; flex-direction: column; background: #faf9f5; color: #1a1a18; }
+  header { padding: 10px 16px; border-bottom: 1px solid #e3e1d9; display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+  header h1 { font-size: 17px; font-weight: 600; }
+  header span.sub { font-size: 13px; color: #6e6d66; }
+  .wrap { flex: 1; display: flex; min-height: 0; }
+  aside { width: 320px; overflow-y: auto; border-right: 1px solid #e3e1d9; padding: 12px; background: #fff; }
+  #map { flex: 1; }
+  .daybtns { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px; }
+  .daybtn { flex: 1 1 45%; border: 1.5px solid; border-radius: 8px; padding: 6px 8px; font-size: 12.5px; font-weight: 600; background: #fff; cursor: pointer; opacity: 1; transition: opacity .15s; text-align: left; }
+  .daybtn small { display: block; font-weight: 400; color: #6e6d66; }
+  .daybtn.off { opacity: 0.35; }
+  h2 { font-size: 13px; font-weight: 600; color: #6e6d66; text-transform: uppercase; letter-spacing: .04em; margin: 14px 0 8px; }
+  .chal { border: 1px solid #f0c5c5; border-left: 4px solid #c43d3d; border-radius: 6px; padding: 8px 10px; margin-bottom: 8px; cursor: pointer; background: #fdf7f7; }
+  .chal:hover { background: #fbeeee; }
+  .chal b { font-size: 13px; display: flex; gap: 6px; align-items: baseline; }
+  .chal b .n { background: #c43d3d; color: #fff; border-radius: 4px; font-size: 11px; padding: 1px 6px; flex: none; }
+  .chal p { font-size: 12px; color: #55544e; margin-top: 4px; line-height: 1.45; }
+  .legend { font-size: 12px; color: #55544e; line-height: 1.6; margin-top: 10px; }
+  .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 5px; vertical-align: -1px; }
+  .note { font-size: 11.5px; color: #8a897f; margin-top: 12px; line-height: 1.5; }
+  .warnicon { background: #c43d3d; color: #fff; border-radius: 6px; border: 2px solid #fff; font-weight: 700; font-size: 12px; display: flex; align-items: center; justify-content: center; box-shadow: 0 1px 4px rgba(0,0,0,.4); }
+  .leaflet-popup-content { font-size: 13px; line-height: 1.5; }
+  .leaflet-popup-content b { font-size: 13.5px; }
+  .pop-time { color: #6e6d66; font-size: 12px; }
+  @media (max-width: 760px) { .wrap { flex-direction: column; } aside { width: 100%; max-height: 45%; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>Yellowstone + Grand Teton itinerary</h1>
+  <span class="sub">Jun 18–21, 2026 · Island Park base · No-Lamar plan · SLC flight Jun 21, 11:30 PM</span>
+</header>
+<div class="wrap">
+  <aside>
+    <div class="daybtns" id="daybtns"></div>
+    <h2>⚠ Challenge zones (click to zoom)</h2>
+    <div id="chals"></div>
+    <div class="legend">
+      <span class="dot" style="background:#7c5cd6"></span>Jun 18 drive-up &nbsp;
+      <span class="dot" style="background:#d98a1f"></span>Jun 19 geysers<br>
+      <span class="dot" style="background:#c2486b"></span>Jun 20 north loop &nbsp;
+      <span class="dot" style="background:#15897a"></span>Jun 21 Tetons + exit
+    </div>
+    <div class="note">Routes are approximate (for planning visuals, not navigation). Speed limits in the parks are 25–45 mph; bison jams can add 15–45 min to any segment. Check NPS road status each morning.</div>
+  </aside>
+  <div id="map"></div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+if (typeof L === 'undefined') {
+  document.getElementById('map').innerHTML = '<p style="padding:2rem;font-size:14px;">Could not load the map library. Open this file in a web browser (Chrome/Safari) with an internet connection.</p>';
+  throw new Error('Leaflet failed to load');
+}
+const map = L.map('map').setView([43.6, -110.9], 7);
+L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+  attribution: '&copy; OpenStreetMap &copy; CARTO', maxZoom: 18
+}).addTo(map);
+
+const DAYS = {
+  d18: { label: 'Jun 18', sub: 'SLC → Island Park', color: '#7c5cd6' },
+  d19: { label: 'Jun 19', sub: 'Old Faithful + geysers', color: '#d98a1f' },
+  d20: { label: 'Jun 20', sub: 'Mammoth · Canyon · Hayden', color: '#c2486b' },
+  d21: { label: 'Jun 21', sub: 'West Thumb · Tetons · SLC', color: '#15897a' }
+};
+
+const stops = [
+  ['d18',[40.694,-111.992],'Crystal Inn, West Valley City','12:00–2:30 PM — checkout, groceries, gas, offline maps'],
+  ['d18',[44.500,-111.340],'Starlight Retreat glamping, Island Park','Arrive ~8:30–10 PM. Optional stargazing 10:45 PM if clear.'],
+  ['d19',[44.658,-111.104],'West Entrance + park sign photo','5:25 AM — early entry beats the line'],
+  ['d19',[44.4605,-110.8281],'Old Faithful + Upper Geyser Basin','6:50–10:00 AM — eruption + boardwalk to Morning Glory Pool. Must-do.'],
+  ['d19',[44.5251,-110.8382],'Midway: Grand Prismatic + Excelsior','10:25–11:30 AM — boardwalk loop. Must-do.'],
+  ['d19',[44.5155,-110.8330],'Grand Prismatic Overlook (Fairy Falls lot)','11:40 AM–12:30 PM — best color view; less steam midday. Must-do.'],
+  ['d19',[44.5497,-110.8070],'Fountain Paint Pot (optional)','1:15–2:00 PM — or Firehole Canyon Drive instead'],
+  ['d19',[44.7260,-110.7030],'Norris Geyser Basin (Porcelain Basin)','2:45–4:00 PM — must-do; then back to Island Park'],
+  ['d19',[44.420,-111.360],'Island Park stay #2 (Aimee Circle)','Check-in after 4 PM. Base for Jun 20–21.'],
+  ['d20',[44.650,-110.810],'Madison/Gibbon wildlife scan','5:30–6:30 AM — the Lamar replacement; pullouts + binoculars'],
+  ['d20',[44.9766,-110.7036],'Mammoth Hot Springs','7:30–9:00 AM — Lower Terraces. Must-do, but it is the cuttable detour.'],
+  ['d20',[44.778,-110.739],'Roaring Mountain (quick stop)','En route Mammoth → Canyon, only if pullout is easy'],
+  ['d20',[44.7201,-110.4794],'Grand Canyon of Yellowstone','11:15 AM–1:45 PM — Artist Point, Lookout Point, Brink of Lower Falls. Must-do.'],
+  ['d20',[44.6249,-110.4339],'Mud Volcano + Sulphur Caldron','3:00–4:00 PM — pairs with Hayden'],
+  ['d20',[44.655,-110.458],'Hayden Valley wildlife evening','4:15–7:15 PM — bison, elk, possible bears/wolves. Then 2.5 hr drive home.'],
+  ['d21',[44.4166,-110.5732],'West Thumb: Abyss Pool + Black Pool','8:00–9:00 AM — lakeside boardwalk. Must-do.'],
+  ['d21',[43.8653,-110.5474],'Oxbow Bend','11:00–11:30 AM — Teton reflection + wildlife'],
+  ['d21',[43.7110,-110.6700],'Schwabacher Landing','11:45 AM–12:20 PM — must-do photo stop'],
+  ['d21',[43.6595,-110.6650],'Mormon Row (optional)','12:35–1:15 PM — iconic barns; 2026 construction noise possible'],
+  ['d21',[43.7512,-110.7224],'Jenny Lake (optional)','1:45–2:45 PM — only if on schedule; Sunday parking is hard'],
+  ['d21',[43.4799,-110.7624],'Jackson — food, gas, depart','Leave by 4:00 PM. 4:30 PM absolute latest.'],
+  ['d21',[40.7884,-111.9778],'SLC airport','Arrive ~9:30 PM for 11:30 PM flight — comfortable buffer']
+];
+
+const routes = {
+  d18: [[[40.694,-111.992],[40.92,-111.90],[41.22,-111.97],[41.74,-112.18],[42.60,-112.20],[42.87,-112.45],[43.49,-112.04],[43.826,-111.79],[44.071,-111.448],[44.420,-111.360],[44.500,-111.340]]],
+  d19: [
+    [[44.500,-111.340],[44.66,-111.28],[44.658,-111.104],[44.655,-110.95],[44.645,-110.860],[44.575,-110.840],[44.5251,-110.8382],[44.4605,-110.8281]],
+    [[44.645,-110.860],[44.655,-110.790],[44.695,-110.740],[44.7260,-110.7030]],
+    [[44.658,-111.104],[44.50,-111.27],[44.420,-111.360]]
+  ],
+  d20: [
+    [[44.420,-111.360],[44.66,-111.28],[44.658,-111.104],[44.655,-110.95],[44.645,-110.860],[44.655,-110.790],[44.695,-110.740],[44.7260,-110.7030]],
+    [[44.7260,-110.7030],[44.778,-110.739],[44.85,-110.73],[44.93,-110.70],[44.9766,-110.7036]],
+    [[44.7260,-110.7030],[44.73,-110.56],[44.7201,-110.4794]],
+    [[44.7201,-110.4794],[44.68,-110.46],[44.655,-110.458],[44.6249,-110.4339]]
+  ],
+  d21: [
+    [[44.420,-111.360],[44.658,-111.104],[44.645,-110.860],[44.5251,-110.8382],[44.4605,-110.8281],[44.437,-110.708],[44.4166,-110.5732]],
+    [[44.4166,-110.5732],[44.30,-110.61],[44.138,-110.6662],[44.10,-110.68],[43.997,-110.685],[43.927,-110.640],[43.871,-110.572],[43.8653,-110.5474],[43.842,-110.510],[43.732,-110.642],[43.7110,-110.6700],[43.6595,-110.6650],[43.654,-110.700]],
+    [[43.654,-110.700],[43.7512,-110.7224]],
+    [[43.654,-110.700],[43.4799,-110.7624],[43.281,-110.785],[43.17,-111.02],[42.72,-110.93],[42.32,-111.30],[41.95,-111.40],[41.74,-111.83],[41.51,-112.01],[41.22,-111.97],[40.7884,-111.9778]]
+  ]
+};
+
+const challenges = [
+  { n:1, at:[44.80,-110.72], z:9, title:'Jun 20 marathon day',
+    body:'4:45 AM–9:45 PM, ~170 mi of in-park driving on 25–45 mph roads. Feasible but it is the fatigue risk of the trip. Pre-decide your cut: if dragging by 7 AM, drop Mammoth — never Canyon or Hayden.' },
+  { n:2, at:[44.9766,-110.7036], z:10, title:'Mammoth is the cuttable detour',
+    body:'Norris → Mammoth and back adds ~1.5–2 hr to Jun 20. Worth it fresh, brutal if tired. (Gardner High Bridge construction is east of Mammoth toward Tower — off your route.)' },
+  { n:3, at:[44.437,-110.708], z:9, title:'Jun 21 morning has zero slack',
+    body:'West Entrance 6:30 AM → West Thumb 8:00 AM is ~64 mi in 90 min. One bison jam eats the buffer. Backup: cut West Thumb to a 30-min loop and protect the Teton stops + flight.' },
+  { n:4, at:[43.962,-110.662], z:10, title:'US-89 construction zone (verified 2026)',
+    body:'One-lane traffic between Leeks Marina and Lizard Creek — daytime delays up to 15 min. Directly on your Jun 21 route south. Your 9:00–10:45 window absorbs it; add no stops here.' },
+  { n:5, at:[43.7512,-110.7224], z:10, title:'Jenny Lake: Sunday + construction',
+    body:'Jun 21 is a Sunday — 1:45 PM parking will be rough. Exit is via Moose, where a roundabout is under construction in 2026. If behind schedule, skip to Snake River Overlook instead (Colter Bay backup means backtracking north).' },
+  { n:6, at:[43.4799,-110.7624], z:9, title:'Hard 4:00 PM deadline',
+    body:'Jackson → SLC is ~4.5–5 hr. Leave by 4:00 PM (4:30 absolute latest) for the 11:30 PM flight. Nothing gets added after this point — if behind, skip Jackson food and drive.' },
+  { n:7, at:[44.60,-110.65], z:8, title:'Hayden → home is a late-night drive',
+    body:'Leaving Hayden at 7:15 PM means reaching Island Park ~9:45 PM — dusk/dark driving through prime wildlife hours. If tired, leave Hayden by 6 PM and give up sunset light.' }
+];
+
+const groups = {};
+Object.entries(DAYS).forEach(([id, d]) => {
+  const g = L.layerGroup().addTo(map);
+  routes[id].forEach(line => L.polyline(line, { color: d.color, weight: 4, opacity: 0.8, dashArray: id === 'd21' ? '8 6' : null }).addTo(g));
+  groups[id] = g;
+});
+stops.forEach(([day, ll, name, note]) => {
+  L.circleMarker(ll, { radius: 7, color: '#fff', weight: 2, fillColor: DAYS[day].color, fillOpacity: 1 })
+    .bindPopup(`<b>${name}</b><br><span class="pop-time">${DAYS[day].label}</span><br>${note}`)
+    .addTo(groups[day]);
+});
+
+L.polyline([[43.997,-110.685],[43.927,-110.640]], { color: '#c43d3d', weight: 9, opacity: 0.45 }).addTo(map);
+
+const chalMarkers = [];
+challenges.forEach(c => {
+  const m = L.marker(c.at, { icon: L.divIcon({ className: 'warnicon', html: c.n, iconSize: [24, 24] }), zIndexOffset: 1000 })
+    .bindPopup(`<b>⚠ ${c.title}</b><br>${c.body}`).addTo(map);
+  chalMarkers.push(m);
+});
+
+const btnWrap = document.getElementById('daybtns');
+Object.entries(DAYS).forEach(([id, d]) => {
+  const b = document.createElement('button');
+  b.className = 'daybtn';
+  b.style.borderColor = d.color; b.style.color = d.color;
+  b.innerHTML = `${d.label}<small>${d.sub}</small>`;
+  b.onclick = () => {
+    if (map.hasLayer(groups[id])) { map.removeLayer(groups[id]); b.classList.add('off'); }
+    else { map.addLayer(groups[id]); b.classList.remove('off'); }
+  };
+  btnWrap.appendChild(b);
+});
+
+const chalWrap = document.getElementById('chals');
+challenges.forEach((c, i) => {
+  const div = document.createElement('div');
+  div.className = 'chal';
+  div.innerHTML = `<b><span class="n">${c.n}</span>${c.title}</b><p>${c.body}</p>`;
+  div.onclick = () => { map.flyTo(c.at, c.z); chalMarkers[i].openPopup(); };
+  chalWrap.appendChild(div);
+});
+
+map.fitBounds([[40.65,-112.3],[45.05,-110.3]]);
+</script>
+</body>
+</html>
